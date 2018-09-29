@@ -1,0 +1,47 @@
+{
+  "name": "pomocode",
+  "version": "1.0.0",
+  "description": "Pomocodo - an app to help you get better at planning and estimating your developer productivity",
+  "main": "index.js",
+  "scripts": {
+    "test": "TEST"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fredricklou523/Pomocode.git"
+  },
+  "keywords": [
+    "pomodoro",
+    "productivity",
+    "time",
+    "blocking",
+    "time",
+    "estimation"
+  ],
+  "author": "Perseus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fredricklou523/Pomocode/issues"
+  },
+  "homepage": "https://github.com/fredricklou523/Pomocode#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "express": "^4.16.3",
+    "graphql": "^14.0.2",
+    "jest": "^23.6.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-router": "^4.3.1",
+    "redux": "^4.0.0",
+    "sequelize": "^4.39.0",
+    "sql": "^0.78.0",
+    "webpack": "^4.20.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1"
+  }
+}
