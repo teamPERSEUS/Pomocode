@@ -1,8 +1,8 @@
-if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const { HOST, PORT } = process.env;
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 7337;
 
 const app = express();
 
