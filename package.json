@@ -4,7 +4,8 @@
   "description": "Pomocodo - an app to help you get better at planning and estimating your developer productivity",
   "main": "index.js",
   "scripts": {
-    "test": "TEST"
+    "test": "TEST",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   "homepage": "https://github.com/fredricklou523/Pomocode#readme",
   "dependencies": {
     "babel": "^6.23.0",
+    "eslint-plugin-jest": "^21.23.0",
     "express": "^4.16.3",
     "graphql": "^14.0.2",
     "jest": "^23.6.0",
