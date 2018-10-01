@@ -1,4 +1,9 @@
 import React from 'react';
+import FileTree from './FileTree';
+import Timer from './Timer';
+import Calendar from './Calendar';
+import Planner from './Planner';
+import IntervalUpdates from './IntervalUpdates';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -8,7 +13,14 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div>DashboardTest</div>
+      <div>
+        DashboardTest
+        <FileTree />
+        <Timer />
+        <Calendar />
+        <Planner />
+        <IntervalUpdates />
+      </div>
     );
   }
 }
