@@ -27,6 +27,8 @@
   },
   "homepage": "https://github.com/fredricklou523/Pomocode#readme",
   "dependencies": {
+    "@reach/router": "^1.2.1",
+    "@types/reach__router": "^1.0.1",
     "babel": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
