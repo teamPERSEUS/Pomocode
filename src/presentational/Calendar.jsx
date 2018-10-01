@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Test extends React.Component {
+class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -8,11 +8,9 @@ class Test extends React.Component {
 
   render() {
     return (
-      <div className="header">
-        <h1>testsets</h1>
-      </div>
+      <div>CalendarTest</div>
     );
   }
 }
 
-export default Test;
+export default Calendar;
