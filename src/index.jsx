@@ -9,7 +9,23 @@ class App extends React.Component {
   }
 
   render() {
-    return <Test />;
+    return (
+      <div className="header">
+        <h1 className="logo">PomoCode</h1>
+        <h2 className="description">A pomodoro timer that enhances productivity</h2>
+          <nav>
+            <ul className="pagesmenu">
+              <li>Home</li>
+              <li>Pomodoro Timer</li>
+              <li>Calendar</li>
+              <li>Plan</li>
+              <li>Updates Per Interval</li>
+              <li>Daily Charts</li>
+              <li>Weekly Charts</li>
+            </ul>
+          </nav>
+      </div>
+    );
   }
 }
 
