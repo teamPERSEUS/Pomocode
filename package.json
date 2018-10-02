@@ -1,7 +1,7 @@
 {
   "name": "pomocode",
   "version": "1.0.0",
-  "description": "Pomocodo - an app to help you get better at planning and estimating your developer productivity",
+  "description": "Pomocode - an app to help you get better at planning and estimating your developer productivity",
   "main": "index.js",
   "scripts": {
     "test": "TEST",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fredricklou523/Pomocode.git"
+    "url": "git+https://github.com/teamPERSEUS/Pomocode.git"
   },
   "keywords": [
     "pomodoro",
@@ -23,15 +23,14 @@
   "author": "Perseus",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fredricklou523/Pomocode/issues"
+    "url": "https://github.com/teamPERSEUS/Pomocode/issues"
   },
-  "homepage": "https://github.com/fredricklou523/Pomocode#readme",
+  "homepage": "https://github.com/teamPERSEUS/Pomocode#readme",
   "dependencies": {
     "@reach/router": "^1.2.1",
     "@types/reach__router": "^1.0.1",
+    "axios": "^0.18.0",
     "babel": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "eslint-plugin-jest": "^21.23.0",
