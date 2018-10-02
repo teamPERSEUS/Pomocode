@@ -14,9 +14,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        DashboardTest
         <FileTree />
-        <Timer />
         <Calendar />
         <Planner />
         <IntervalUpdates />

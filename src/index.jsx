@@ -22,20 +22,20 @@ class App extends React.Component {
         <h1 className="logo">PomoCode</h1>
         <h2 className="description">A pomodoro timer that enhances productivity</h2>
         <nav className="navBar">
-          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/">Home</Link>
           <Link to="/timer">Pomodoro Timer</Link>
           <Link to="/dailyCharts">Daily Charts</Link>
           <Link to="/weeklyCharts">Weekly Charts</Link>
         </nav>
         <Router>
-          <Dashboard path="/dashboard" />
+          <Dashboard path="/" />
           <FileTree path="/fileTree" />
-            <Timer path="/timer" />
-            <Calendar path="/calender" />
-            <Planner path="/plan" />
-            <IntervalUpdates path="/intervalUpdates" />
+          <Timer path="/timer" />
+          <Calendar path="/calender" />
+          <Planner path="/plan" />
+          <IntervalUpdates path="/intervalUpdates" />
           <DailyCharts path="/dailyCharts" />
-            <WeeklyCharts path="/weeklyCharts" />
+          <WeeklyCharts path="/weeklyCharts" />
         </Router>
       </div>
     );

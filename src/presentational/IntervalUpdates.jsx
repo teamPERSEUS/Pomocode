@@ -7,7 +7,21 @@ class IntervalUpdates extends React.Component {
   }
 
   render() {
-    return <div>IntervalUpdatesTest</div>;
+    return (
+      <div>
+        <h2>Interval Updates</h2>
+        ------------
+        <br />
+        ------------
+        <br />
+        ------------
+        <br />
+        ------------
+        <br />
+        ------------
+        <br />
+      </div>
+    );
   }
 }
 

@@ -8,7 +8,7 @@ class Timer extends React.Component {
 
   render() {
     return (
-      <div>TimerTest</div>
+      <img src="https://codepen.io/eddyerburgh/pen/yOjdqo/image/large.png" alt="Pomodoro Timer" />
     );
   }
 }

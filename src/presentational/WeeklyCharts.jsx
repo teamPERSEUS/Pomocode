@@ -8,7 +8,10 @@ class WeeklyCharts extends React.Component {
 
   render() {
     return (
-      <div>WeeklyChartsTest</div>
+      <div>
+        <h2>Weekly Charts</h2>
+        <h3>Analyze your work history to determine how you are performing.</h3>
+      </div>
     );
   }
 }

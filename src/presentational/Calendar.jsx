@@ -8,7 +8,16 @@ class Calendar extends React.Component {
 
   render() {
     return (
-      <div>CalendarTest</div>
+      <div>
+        <h2>Daily Calendar</h2>
+        9am -
+        <br />
+        10am -
+        <br />
+        ...
+        <br />
+        5pm -
+      </div>
     );
   }
 }

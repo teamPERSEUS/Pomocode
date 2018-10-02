@@ -8,7 +8,19 @@ class Planner extends React.Component {
 
   render() {
     return (
-      <div>PlannerTest</div>
+      <div>
+        <h2>Planning</h2>
+        ------------
+        <br />
+        ------------
+        <br />
+        ------------
+        <br />
+        ------------
+        <br />
+        ------------
+        <br />
+      </div>
     );
   }
 }

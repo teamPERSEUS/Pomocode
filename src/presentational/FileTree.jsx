@@ -8,7 +8,13 @@ class FileTree extends React.Component {
 
   render() {
     return (
-      <div>FileTreeTest</div>
+      <div>
+        <h2>Github File Tree</h2>
+        <h3>Drag and Drop File Tree</h3>
+        ---------- ---------- ----------
+        <br />
+        *Render Github File Tree Data Here*
+      </div>
     );
   }
 }
