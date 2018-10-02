@@ -12,7 +12,8 @@ import Planner from './presentational/Planner';
 import WeeklyCharts from './presentational/WeeklyCharts';
 import queries from '../utils/queries';
 
-const serverPort = 'http://localhost:1337';
+const serverPort = process.env.NODE_ENV !== 'production' ? 'http://localhost:1337' : '';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +24,6 @@ class App extends React.Component {
 
   componentDidMount() {
     axios.get(`${serverPort}/session`, { withCredentials: true }).then(({ data }) => {
-      console.log('Data token:', data.token);
       if (data.token !== null) {
         this.setState({
           token: data.token,

@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
-const path = require('path');
+// const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
@@ -39,7 +39,6 @@ app.use((req, res, next) => {
 // check if in session
 app.get('/session', (req, res) => {
   const token = req.session.token || null;
-  console.log('Session token:', token);
   res.send({ token });
 });
 
@@ -53,7 +52,6 @@ app.get('/token', (req, res) => {
   gitToken(req.query.code)
     .then((token) => {
       req.session.token = token;
-      console.log('Retrieved Token:', token);
       res.redirect(HOME);
     })
     .catch(() => {
