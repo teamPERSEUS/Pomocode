@@ -9,7 +9,7 @@ class Calendar extends React.Component {
   render() {
     return (
       <body>
-        <h2>Calender</h2>
+        <h2>PomoCalender</h2>
         <table>
           <tr>
             <th>Hour</th>
@@ -18,52 +18,52 @@ class Calendar extends React.Component {
           </tr>
           <tr>
             <td>8am</td>
-            <td></td>
+            <td><input type="text" /></td>
             <td></td>
           </tr>
           <tr>
             <td>9am</td>
-            <td></td>
+            <td><input type="text" /></td>
             <td></td>
           </tr>
           <tr>
             <td>10am</td>
-            <td></td>
+            <td><input type="text" /></td>
             <td></td>
           </tr>
           <tr>
             <td>11am</td>
-            <td></td>
+            <td><input type="text" /></td>
             <td></td>
           </tr>
           <tr>
             <td>12pm</td>
-            <td></td>
+            <td><input type="text" /></td>
             <td></td>
           </tr>
           <tr>
             <td>1pm</td>
-            <td></td>
+            <td><input type="text" /></td>
             <td></td>
           </tr>
           <tr>
             <td>2pm</td>
-            <td></td>
+            <td><input type="text" /></td>
             <td></td>
           </tr>
           <tr>
             <td>3pm</td>
-            <td></td>
+            <td><input type="text" /></td>
             <td></td>
           </tr>
           <tr>
             <td>4pm</td>
-            <td></td>
+            <td><input type="text" /></td>
             <td></td>
           </tr>
           <tr>
             <td>5pm</td>
-            <td></td>
+            <td><input type="text" /></td>
             <td></td>
           </tr>
         </table>
