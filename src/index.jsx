@@ -6,13 +6,14 @@ import Timer from './presentational/Timer';
 import Dashboard from './presentational/Dashboard';
 import DailyCharts from './presentational/DailyCharts';
 import WeeklyCharts from './presentational/WeeklyCharts';
+import Dropdown from './presentational/Dropdown';
 import queries from '../utils/queries';
 
 const serverPort = process.env.NODE_ENV !== 'production' ? 'http://localhost:1337' : '';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       token: '',
       issues: [],
@@ -78,6 +79,7 @@ class App extends React.Component {
           <Timer path="/timer" />
           <DailyCharts path="/dailyCharts" />
           <WeeklyCharts path="/weeklyCharts" />
+          <Dropdown path="/dropdown" />
         </Router>
       </div>
     );
