@@ -19,7 +19,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       token: '',
+      issues: [],
+      repos: [],
     };
+
+    this.getIssues = this.getIssues.bind(this);
   }
 
   componentDidMount() {
@@ -27,29 +31,47 @@ class App extends React.Component {
       if (data.token !== null) {
         this.setState({
           token: data.token,
+        }, () => {
+          this.getRepos();
+          this.getIssues();
         });
       }
     });
   }
 
+
   // example GitHub Query: retrieve array of repositories
-  getRepos(query) {
+  getRepos() {
     const { token } = this.state;
     axios
-      .post(`${serverPort}/query`, { token, query }, { withCredentials: true })
+      .post(`${serverPort}/query`, { token, query: queries.repoNames }, { withCredentials: true })
       .then(({ data }) => {
-        console.log(data.data.viewer.repositories.nodes);
+        this.setState({
+          repos: data.viewer.repositories.nodes,
+        });
+      });
+  }
+
+  // example GitHub Query: retrieve array of issues
+  getIssues() {
+    const { token } = this.state;
+    axios
+      .post(`${serverPort}/query`, { token, query: queries.issues }, { withCredentials: true })
+      .then(({ data }) => {
+        this.setState({
+          issues: data.viewer.issues.nodes,
+        });
       });
   }
 
   render() {
-    // line 48 is to test GitHub API Query functionality
-    const { token } = this.state;
+    // the 2 array map calls are just to test if the repos and issues are saved in state.
     return (
       <div className="header">
         <h1 className="logo">PomoCode</h1>
         <a href={`${serverPort}/login`}> Login </a>
-        {token !== '' ? this.getRepos(queries.repoNames) : null}
+        {this.state.repos.map((repo, index) => <p key={index}>{repo.name}</p>)}
+        {this.state.issues.map(issue => <p key={issue.number}>{issue.title}</p>)}
         <h2 className="description">A pomodoro timer that enhances productivity</h2>
         <nav className="navBar">
           <Link to="/">Home</Link>

@@ -45,7 +45,7 @@ const gitQuery = (token, query) => {
     axios
       .post(gitHubAPI, { query }, queryHeader)
       .then(({ data }) => {
-        resolve(data);
+        resolve(data.data);
       })
       .catch((err) => {
         reject(err);
