@@ -3,12 +3,8 @@ import ReactDOM from 'react-dom';
 import { Router, Link } from '@reach/router';
 import axios from 'axios';
 import Timer from './presentational/Timer';
-import FileTree from './presentational/FileTree';
 import Dashboard from './presentational/Dashboard';
-import Calendar from './presentational/Calendar';
 import DailyCharts from './presentational/DailyCharts';
-import IntervalUpdates from './presentational/IntervalUpdates';
-import Planner from './presentational/Planner';
 import WeeklyCharts from './presentational/WeeklyCharts';
 import queries from '../utils/queries';
 
@@ -19,7 +15,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       token: '',
+      issues: [],
+      repos: [],
     };
+
+    this.getIssues = this.getIssues.bind(this);
   }
 
   componentDidMount() {
@@ -27,29 +27,45 @@ class App extends React.Component {
       if (data.token !== null) {
         this.setState({
           token: data.token,
+        }, () => {
+          this.getRepos();
+          this.getIssues();
         });
       }
     });
   }
 
   // example GitHub Query: retrieve array of repositories
-  getRepos(query) {
+  getRepos() {
     const { token } = this.state;
     axios
-      .post(`${serverPort}/query`, { token, query }, { withCredentials: true })
+      .post(`${serverPort}/query`, { token, query: queries.repoNames }, { withCredentials: true })
       .then(({ data }) => {
-        console.log(data.data.viewer.repositories.nodes);
+        this.setState({
+          repos: data.viewer.repositories.nodes,
+        });
+      });
+  }
+
+  // example GitHub Query: retrieve array of issues
+  getIssues() {
+    const { token } = this.state;
+    axios
+      .post(`${serverPort}/query`, { token, query: queries.issues }, { withCredentials: true })
+      .then(({ data }) => {
+        this.setState({
+          issues: data.viewer.issues.nodes,
+        });
       });
   }
 
   render() {
-    // line 48 is to test GitHub API Query functionality
-    const { token } = this.state;
+    // the 2 array map calls are just to test if the repos and issues are saved in state.
+    const { repos, issues } = this.state;
     return (
       <div className="header">
         <h1 className="logo">PomoCode</h1>
         <a href={`${serverPort}/login`}> Login </a>
-        {token !== '' ? this.getRepos(queries.repoNames) : null}
         <h2 className="description">A pomodoro timer that enhances productivity</h2>
         <nav className="navBar">
           <Link to="/">Home</Link>
@@ -58,12 +74,8 @@ class App extends React.Component {
           <Link to="/weeklyCharts">Weekly Charts</Link>
         </nav>
         <Router>
-          <Dashboard path="/" />
-          <FileTree path="/fileTree" />
+          <Dashboard path="/" repos={repos} issues={issues} />
           <Timer path="/timer" />
-          <Calendar path="/calender" />
-          <Planner path="/plan" />
-          <IntervalUpdates path="/intervalUpdates" />
           <DailyCharts path="/dailyCharts" />
           <WeeklyCharts path="/weeklyCharts" />
         </Router>

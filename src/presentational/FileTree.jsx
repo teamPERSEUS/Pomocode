@@ -1,22 +1,18 @@
 import React from 'react';
 
-class FileTree extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
-        <h2>Github File Tree</h2>
-        <h3>Drag and Drop File Tree</h3>
-        ---------- ---------- ----------
-        <br />
-        *Render Github File Tree Data Here*
-      </div>
-    );
-  }
-}
+const FileTree = ({ repos, issues }) => (
+  <div>
+    <h2>Github File Tree</h2>
+    <span>Repos</span>
+    {' '}
+    <select>
+      {repos.map(repo => <option key={repo.id} value={repo.name}>{repo.name}</option>)}
+    </select>
+    <br />
+    {'---------- ---------- ----------'}
+    <h3>Issues</h3>
+    {issues.map(issue => <p key={issue.number}>{issue.title}</p>)}
+  </div>
+);
 
 export default FileTree;
