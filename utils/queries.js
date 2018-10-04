@@ -36,7 +36,7 @@ module.exports = {
   },
   issues: `query {
     viewer {
-      issues (first:50 after: ) {
+      issues (last:50 orderBy: {field:UPDATED_AT direction:DESC} after: ) {
         totalCount
         nodes {
             repository {
