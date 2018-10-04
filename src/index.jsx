@@ -3,12 +3,8 @@ import ReactDOM from 'react-dom';
 import { Router, Link } from '@reach/router';
 import axios from 'axios';
 import Timer from './presentational/Timer';
-import FileTree from './presentational/FileTree';
 import Dashboard from './presentational/Dashboard';
-import Calendar from './presentational/Calendar';
 import DailyCharts from './presentational/DailyCharts';
-import IntervalUpdates from './presentational/IntervalUpdates';
-import Planner from './presentational/Planner';
 import WeeklyCharts from './presentational/WeeklyCharts';
 import queries from '../utils/queries';
 
@@ -39,7 +35,6 @@ class App extends React.Component {
     });
   }
 
-
   // example GitHub Query: retrieve array of repositories
   getRepos() {
     const { token } = this.state;
@@ -66,12 +61,11 @@ class App extends React.Component {
 
   render() {
     // the 2 array map calls are just to test if the repos and issues are saved in state.
+    const { repos, issues } = this.state;
     return (
       <div className="header">
         <h1 className="logo">PomoCode</h1>
         <a href={`${serverPort}/login`}> Login </a>
-        {this.state.repos.map((repo, index) => <p key={index}>{repo.name}</p>)}
-        {this.state.issues.map(issue => <p key={issue.number}>{issue.title}</p>)}
         <h2 className="description">A pomodoro timer that enhances productivity</h2>
         <nav className="navBar">
           <Link to="/">Home</Link>
@@ -80,12 +74,8 @@ class App extends React.Component {
           <Link to="/weeklyCharts">Weekly Charts</Link>
         </nav>
         <Router>
-          <Dashboard path="/" />
-          <FileTree path="/fileTree" />
+          <Dashboard path="/" repos={repos} issues={issues} />
           <Timer path="/timer" />
-          <Calendar path="/calender" />
-          <Planner path="/plan" />
-          <IntervalUpdates path="/intervalUpdates" />
           <DailyCharts path="/dailyCharts" />
           <WeeklyCharts path="/weeklyCharts" />
         </Router>

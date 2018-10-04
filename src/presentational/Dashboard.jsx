@@ -14,7 +14,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <FileTree />
+        <FileTree repos={this.props.repos} issues={this.props.issues} />
         <Calendar />
         <Planner />
         <IntervalUpdates />

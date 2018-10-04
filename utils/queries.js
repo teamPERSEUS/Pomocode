@@ -2,9 +2,14 @@ module.exports = {
   repoNames: `query {
     viewer {
       name,
-      repositories(last:30) {
+      repositories(last:50) {
         nodes {
+          id
           name
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
         }
       }
     }
