@@ -11,7 +11,7 @@ const FileTree = ({ repos, issues }) => (
     <br />
     {'---------- ---------- ----------'}
     <h3>Issues</h3>
-    {issues.map(issue => <p key={issue.number}>{issue.title}</p>)}
+    {issues.map(issue => <p key={issue.id}>{issue.title}</p>)}
   </div>
 );
 

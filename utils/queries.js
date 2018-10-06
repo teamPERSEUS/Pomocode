@@ -39,14 +39,15 @@ module.exports = {
       issues (last:50 orderBy: {field:UPDATED_AT direction:DESC} after: ) {
         totalCount
         nodes {
-            repository {
-              name
-            }
-            number
-            title
-            updatedAt
-            closedAt
-            body
+          id
+          repository {
+            name
+          }
+          number
+          title
+          updatedAt
+          closedAt
+          body
         }
         pageInfo {
           endCursor
