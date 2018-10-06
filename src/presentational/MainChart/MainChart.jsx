@@ -1,4 +1,5 @@
 import React from 'react';
+import MainChartView from './MainChartView';
 
 class MainChart extends React.Component {
   constructor() {
@@ -8,7 +9,7 @@ class MainChart extends React.Component {
 
   render() {
     return (
-      <h2>MainChart</h2>
+      <MainChartView />
     );
   }
 }
