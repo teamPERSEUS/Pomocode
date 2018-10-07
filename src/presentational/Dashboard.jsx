@@ -1,9 +1,13 @@
 import React from 'react';
 import FileTree from './FileTree';
-import Timer from './Timer';
-import Calendar from './Calendar';
-import Planner from './Planner';
-import IntervalUpdates from './IntervalUpdates';
+import HomePage from './HomePage/HomePage';
+import Header from './Header/Header';
+import IntervalUpdates from './IntervalUpdates/IntervalUpdates';
+import IssueSelector from './IssueSelector/IssueSelector';
+import IssueProgress from './IssueProgress/IssueProgress';
+import MainChart from './MainChart/MainChart';
+import SubChart from './SubChart/SubChart';
+
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -15,9 +19,14 @@ class Dashboard extends React.Component {
     return (
       <div>
         <FileTree repos={this.props.repos} issues={this.props.issues} />
-        <Calendar />
-        <Planner />
+        <HomePage />
+        <Header />
         <IntervalUpdates />
+        <IssueSelector />
+        <IssueProgress />
+        <MainChart />
+        <SubChart />
+        
       </div>
     );
   }

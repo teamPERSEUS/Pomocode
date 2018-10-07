@@ -2,12 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Link } from '@reach/router';
 import axios from 'axios';
-import Timer from './presentational/Timer';
 import Dashboard from './presentational/Dashboard';
-import DailyCharts from './presentational/DailyCharts';
-import WeeklyCharts from './presentational/WeeklyCharts';
-import Dropdown from './presentational/Dropdown';
+import HomePage from './presentational/HomePage/HomePage';
+import Header from './presentational/Header/Header';
+import IntervalUpdates from './presentational/IntervalUpdates/IntervalUpdates';
+import IssueSelector from './presentational/IssueSelector/IssueSelector';
+import IssueProgress from './presentational/IssueProgress/IssueProgress';
+import MainChart from './presentational/MainChart/MainChart';
+import SubChart from './presentational/SubChart/SubChart';
+import HistoricalTrends from './presentational/HistoricalTrends/HistoricalTrends';
 import queries from '../utils/queries';
+
 
 const serverPort = process.env.NODE_ENV !== 'production' ? 'http://localhost:1337' : '';
 
@@ -70,16 +75,18 @@ class App extends React.Component {
         <h2 className="description">A pomodoro timer that enhances productivity</h2>
         <nav className="navBar">
           <Link to="/">Home</Link>
-          <Link to="/timer">Pomodoro Timer</Link>
-          <Link to="/dailyCharts">Daily Charts</Link>
-          <Link to="/weeklyCharts">Weekly Charts</Link>
+          <Link to="/historicaltrends">Historical Trends</Link>
         </nav>
         <Router>
           <Dashboard path="/" repos={repos} issues={issues} />
-          <Timer path="/timer" />
-          <DailyCharts path="/dailyCharts" />
-          <WeeklyCharts path="/weeklyCharts" />
-          <Dropdown path="/dropdown" />
+          <HomePage path="/homepage" />
+          <Header path="/header" />
+          <IntervalUpdates path="/intervalupdates" />
+          <IssueSelector path="/issueselector" />
+          <IssueProgress path="/issueprogress" />
+          <MainChart path="/mainchart" />
+          <SubChart path="/subchart" />
+          <HistoricalTrends path="/historicaltrends" />
         </Router>
       </div>
     );
