@@ -1,6 +1,7 @@
 import React from 'react';
 import HomePageView from './HomePageView';
 
+
 class HomePage extends React.Component {
   constructor() {
     super();

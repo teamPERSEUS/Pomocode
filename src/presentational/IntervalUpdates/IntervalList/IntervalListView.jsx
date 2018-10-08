@@ -4,7 +4,14 @@ import Interval from './Interval/Interval';
 const IntervalListView = () => { 
   return (
     <div>
-      <h2>IntervalList</h2>
+      {/* <div className="interval-list">
+        {props.intervals.map(interval =>
+          <Interval
+            interval={interval}
+            key={interval.id.intervalId}
+          )};
+      </div> */}
+      <Interval />
       <Interval />
     </div>
   );

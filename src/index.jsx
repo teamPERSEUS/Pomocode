@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Link } from '@reach/router';
 import axios from 'axios';
-import Dashboard from './presentational/Dashboard';
 import HomePage from './presentational/HomePage/HomePage';
 import Header from './presentational/Header/Header';
 import IntervalUpdates from './presentational/IntervalUpdates/IntervalUpdates';
@@ -70,16 +69,14 @@ class App extends React.Component {
     const { repos, issues } = this.state;
     return (
       <div className="header">
-        <h1 className="logo">PomoCode</h1>
+        <Header />
         <a href={`${serverPort}/login`}> Login </a>
-        <h2 className="description">A pomodoro timer that enhances productivity</h2>
         <nav className="navBar">
           <Link to="/">Home</Link>
           <Link to="/historicaltrends">Historical Trends</Link>
         </nav>
         <Router>
-          <Dashboard path="/" repos={repos} issues={issues} />
-          <HomePage path="/homepage" />
+          <HomePage path="/" repos={repos} issues={issues} />
           <Header path="/header" />
           <IntervalUpdates path="/intervalupdates" />
           <IssueSelector path="/issueselector" />

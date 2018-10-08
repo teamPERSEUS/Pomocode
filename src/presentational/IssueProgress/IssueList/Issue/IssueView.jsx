@@ -2,7 +2,15 @@ import React from 'react';
 
 const IssueView = () => { 
   return (
-    <h2>Issue</h2>
+    <div className="issue-entry">
+      <h3>Issue</h3>
+      <div>
+        {/* Issue data here */}
+        Rutrum vel est non, tempus accumsan
+        <br />
+        diam. In rutrum imperdiet ex, id iaculis
+      </div>
+    </div>
   );
 };
 
