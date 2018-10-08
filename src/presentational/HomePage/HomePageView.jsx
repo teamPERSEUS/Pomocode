@@ -8,11 +8,10 @@ import SubChart from '../SubChart/SubChart';
 const HomePageView = () => { 
   return (
     <div>
-      <h2>HomePage</h2>
-      <MainChart />
       <IntervalUpdates />
       <IssueSelector />
       <IssueProgress />
+      <MainChart />
       <SubChart />
     </div>
   );
