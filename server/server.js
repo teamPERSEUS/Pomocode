@@ -20,6 +20,7 @@ app.use(
     secret: 'gitPomocode',
     resave: false,
     saveUninitialized: true,
+    cookie: {},
   }),
 );
 
@@ -50,11 +51,12 @@ app.get('/login', (req, res) => {
 // retrieve token from github
 app.get('/token', (req, res) => {
   gitToken(req.query.code)
-    .then((token) => {
-      req.session.token = token;
+    .then(({ data }) => {
+      req.session.token = data.access_token;
       res.redirect(HOME);
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err);
       res.redirect(HOME);
     });
 });
@@ -62,8 +64,8 @@ app.get('/token', (req, res) => {
 // query github API v4(GraphQL)
 app.post('/query', (req, res) => {
   gitQuery(req.body.token, req.body.query)
-    .then((data) => {
-      res.send(data);
+    .then(({ data }) => {
+      res.send(data.data);
     })
     .catch((err) => {
       res.status(500).send(err);
