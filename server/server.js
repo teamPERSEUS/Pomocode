@@ -1,15 +1,19 @@
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 // const path = require('path');
+const axios = require('axios');
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-const { gitCodeURL, gitToken, gitQuery } = require('../utils/github');
+const { gitCodeURL, gitToken } = require('../utils/github');
 
-const { HOST, PORT, DEV_PORT } = process.env;
+const {
+  HOST, PORT, WEB_PORT, GIT_PORT,
+} = process.env;
 
 const app = express();
 
-const HOME = process.env.NODE_ENV !== 'production' ? `http://${HOST}:${DEV_PORT}` : '/';
+const HOME = process.env.NODE_ENV !== 'production' ? `http://${HOST}:${WEB_PORT}` : '/';
+const GITSERVICE = process.env.NODE_ENV !== 'production' ? `http://${HOST}:${GIT_PORT}` : '/';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -20,12 +24,13 @@ app.use(
     secret: 'gitPomocode',
     resave: false,
     saveUninitialized: true,
+    cookie: {},
   }),
 );
 
 // CORS headers
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', `http://${HOST}:${DEV_PORT}`);
+  res.header('Access-Control-Allow-Origin', `${HOME}`);
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Methods', '*');
@@ -39,7 +44,8 @@ app.use((req, res, next) => {
 // check if in session
 app.get('/session', (req, res) => {
   const token = req.session.token || null;
-  res.send({ token });
+  const user = req.session.user || null;
+  res.send({ token, user });
 });
 
 // retrieve code from github
@@ -48,25 +54,19 @@ app.get('/login', (req, res) => {
 });
 
 // retrieve token from github
-app.get('/token', (req, res) => {
+app.get('/authorize', (req, res) => {
   gitToken(req.query.code)
-    .then((token) => {
-      req.session.token = token;
-      res.redirect(HOME);
+    .then(({ data }) => {
+      req.session.token = data.access_token;
+      return axios.post(`${GITSERVICE}/login`, { token: data.access_token });
     })
-    .catch(() => {
+    .then((user) => {
+      req.session.user = user.data.login;
       res.redirect(HOME);
-    });
-});
-
-// query github API v4(GraphQL)
-app.post('/query', (req, res) => {
-  gitQuery(req.body.token, req.body.query)
-    .then((data) => {
-      res.send(data);
     })
     .catch((err) => {
-      res.status(500).send(err);
+      console.log(err);
+      res.redirect(HOME);
     });
 });
 
