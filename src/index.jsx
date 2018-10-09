@@ -10,8 +10,6 @@ import IssueProgress from './presentational/IssueProgress/IssueProgress';
 import MainChart from './presentational/MainChart/MainChart';
 import SubChart from './presentational/SubChart/SubChart';
 import HistoricalTrends from './presentational/HistoricalTrends/HistoricalTrends';
-import queries from '../utils/queries';
-
 
 const serverPort = process.env.NODE_ENV !== 'production' ? 'http://localhost:1337' : '';
 
@@ -19,6 +17,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      user: '',
       token: '',
       issues: [],
       repos: [],
@@ -31,36 +30,29 @@ class App extends React.Component {
     axios.get(`${serverPort}/session`, { withCredentials: true }).then(({ data }) => {
       if (data.token !== null) {
         this.setState({
+          user: data.user,
           token: data.token,
         }, () => {
-          this.getRepos();
           this.getIssues();
         });
       }
     });
   }
 
-  // example GitHub Query: retrieve array of repositories
-  getRepos() {
-    const { token } = this.state;
-    axios
-      .post(`${serverPort}/query`, { token, query: queries.repoNames }, { withCredentials: true })
-      .then(({ data }) => {
-        this.setState({
-          repos: data.viewer.repositories.nodes,
-        });
-      });
-  }
-
   // example GitHub Query: retrieve array of issues
   getIssues() {
-    const { token } = this.state;
+    const { token, user } = this.state;
     axios
-      .post(`${serverPort}/query`, { token, query: queries.issues }, { withCredentials: true })
+      .post('http://localhost:4000/refreshGitData', { token, user })
       .then(({ data }) => {
         this.setState({
-          issues: data.viewer.issues.nodes,
+          issues: data.issues,
+          repos: data.repos,
         });
+      })
+      .catch((err) => {
+        console.log('Problem retrieving github data:', err);
+        throw (err);
       });
   }
 

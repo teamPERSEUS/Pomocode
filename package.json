@@ -4,7 +4,8 @@
   "description": "Pomocode - an app to help you get better at planning and estimating your developer productivity",
   "main": "index.js",
   "scripts": {
-    "test": "TEST",
+    "test": "jest",
+    "code-coverage": "jest --coverage",
     "server": "nodemon server/server.js",
     "build": "webpack",
     "dev": "webpack-dev-server --env.mode development --watch --hot"
@@ -32,6 +33,7 @@
     "@types/reach__router": "^1.0.1",
     "axios": "^0.18.0",
     "babel": "^6.23.0",
+    "babel-jest": "^23.6.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "eslint-plugin-jest": "^21.23.0",
@@ -45,6 +47,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-router": "^4.3.1",
+    "react-test-renderer": "^16.5.2",
     "redux": "^4.0.0",
     "sequelize": "^4.39.0",
     "sql": "^0.78.0",
