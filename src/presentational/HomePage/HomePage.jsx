@@ -3,14 +3,15 @@ import HomePageView from './HomePageView';
 
 
 class HomePage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
   render() {
+    const { repos, issues } = this.props;
     return (
-      <HomePageView />
+      <HomePageView repos={repos} issues={issues} />
     );
   }
 }

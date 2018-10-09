@@ -4,16 +4,24 @@ import DayPicker from './DayPicker/DayPicker';
 const IssueDescView = () => { 
   return (
     <div>
-      <div>Box with Issue Description</div>
+      <strong>Issue Title</strong>
+      <br />
+      The body of the issue.
+      <br />
+      <br />
       <form>
         <label>
-          Number of Hours:
+          <strong>Number of Hours:</strong>
+          <br />
           <input type="text" />
+          {' '}
           hrs
           <br />
-          Date
+          <strong>Date</strong>
           <DayPicker />
         </label>
+        <br />
+        <button type="submit"><strong>Submit Issue</strong></button>
       </form>
     </div>
   );
