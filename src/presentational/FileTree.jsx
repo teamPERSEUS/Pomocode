@@ -6,12 +6,12 @@ const FileTree = ({ repos, issues }) => (
     <span>Repos</span>
     {' '}
     <select>
-      {repos.map(repo => <option key={repo.id} value={repo.name}>{repo.name}</option>)}
+      {repos.map(repo => <option key={repo.git_id} value={repo.name}>{repo.name}</option>)}
     </select>
     <br />
     {'---------- ---------- ----------'}
     <h3>Issues</h3>
-    {issues.map(issue => <p key={issue.id}>{issue.title}</p>)}
+    {issues.map(issue => <p key={issue.git_id}>{issue.title}</p>)}
   </div>
 );
 
