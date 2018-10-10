@@ -20,9 +20,11 @@ class App extends React.Component {
       user: '',
       token: '',
       issues: [],
+      plannedIssues: [],
       repos: [],
     };
     this.getIssues = this.getIssues.bind(this);
+    this.getPlannedIssues = this.getPlannedIssues.bind(this);
   }
 
   componentDidMount() {
@@ -33,12 +35,13 @@ class App extends React.Component {
           token: data.token,
         }, () => {
           this.getIssues();
+          this.getPlannedIssues();
         });
       }
     });
   }
 
-  // example GitHub Query: retrieve array of issues
+  // retrieve issues and repos from service
   getIssues() {
     const { token, user } = this.state;
     axios
@@ -55,11 +58,23 @@ class App extends React.Component {
       });
   }
 
+  getPlannedIssues() {
+    const { user } = this.state;
+    axios
+      .get('http://localhost:4000/getPlannedIssues', { params: { user } })
+      .then(({ data }) => {
+        this.setState({
+          plannedIssues: data,
+        });
+      })
+      .catch((err) => {
+        console.log('Problem retrieving github data:', err);
+        throw (err);
+      });
+  }
+
   render() {
-    // the 2 array map calls are just to test if the repos and issues are saved in state.
-    const { repos, issues } = this.state;
-    console.log(repos);
-    console.log(issues);
+    const { repos, issues, plannedIssues } = this.state;
     return (
       <div className="header">
         <Header />
@@ -69,7 +84,7 @@ class App extends React.Component {
           <Link to="/historicaltrends">Historical Trends</Link>
         </nav>
         <Router>
-          <HomePage path="/" repos={repos} issues={issues} />
+          <HomePage path="/" repos={repos} issues={issues} plannedIssues={plannedIssues} />
           <HistoricalTrends path="/historicaltrends" />
         </Router>
       </div>

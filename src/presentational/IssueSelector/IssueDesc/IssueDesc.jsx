@@ -1,6 +1,6 @@
 import React from 'react';
-import IssueDescView from './IssueDescView';
 import axios from 'axios';
+import IssueDescView from './IssueDescView';
 
 class IssueDesc extends React.Component {
   constructor(props) {
@@ -18,22 +18,22 @@ class IssueDesc extends React.Component {
 
   onDateChange(date) {
     this.setState({
-      date: date,
-    }, () => {console.log(this.state.date); });
+      date,
+    }, () => { console.log(this.state.date); });
   }
 
   setMinutes(event) {
     this.setState({
       minutes: event.target.value,
     });
-    //console.log(minutes)
+    // console.log(minutes)
   }
 
   setHours(event) {
     this.setState({
       hours: event.target.value,
     });
-    //console.log(hours)
+    // console.log(hours)
   }
 
   handleSubmit(event) {
@@ -48,10 +48,10 @@ class IssueDesc extends React.Component {
 
     console.log(planInfo);
 
-    // axios.put('http://localhost:4000/addIssuePlan', { planInfo })
-    //   .then(res => {
-    //     alert('Plan Uploaded!')
-    //   })
+    axios.put('http://localhost:4000/addIssuePlan', planInfo)
+      .then(() => {
+        alert('Plan Uploaded!');
+      });
   }
 
   render() {
