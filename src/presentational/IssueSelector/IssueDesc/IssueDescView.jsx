@@ -1,7 +1,7 @@
 import React from 'react';
-import DayPicker from './DayPicker/DayPicker';
+import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 
-const IssueDescView = ({ selectedIssue }) => { 
+const IssueDescView = ({ selectedIssue, hours, minutes, date, setMinutes, setHours, onDateChange, handleSubmit }) => { 
   return (
     <div>
       Repo: {selectedIssue.reponame}
@@ -13,19 +13,41 @@ const IssueDescView = ({ selectedIssue }) => {
       Description: {selectedIssue.body}
       <br />
       <br />
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
-          <strong>Number of Hours:</strong>
+          <strong>Time Allotted to Issue:</strong>
           <br />
-          <input type="text" />
+          <input
+            type="text"
+            id="hours"
+            value={hours}
+            onChange={setHours}
+            placeholder="add here..."
+          />
           {' '}
-          hrs
+          hours
+          <br />
+          <br />
+          <input
+            type="text"
+            id="minutes"
+            value={minutes}
+            onChange={setMinutes}
+            placeholder="add here..."
+          />
+          {' '}
+          minutes
           <br />
           <strong>Date</strong>
-          <DayPicker />
+          <DateRangePicker
+            onChange={onDateChange}
+            value={date}
+          />
         </label>
         <br />
-        <button type="submit"><strong>Submit Issue</strong></button>
+        <button type="submit" value="Submit">
+          <strong>Submit Issue</strong>
+        </button>
       </form>
     </div>
   );
