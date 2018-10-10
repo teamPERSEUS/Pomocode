@@ -31,10 +31,12 @@
   "dependencies": {
     "@reach/router": "^1.2.1",
     "@types/reach__router": "^1.0.1",
+    "@wojtekmaj/react-daterange-picker": "^1.2.0",
     "axios": "^0.18.0",
     "babel": "^6.23.0",
     "babel-jest": "^23.6.0",
     "body-parser": "^1.18.3",
+    "css-loader": "^1.0.0",
     "dotenv": "^6.0.0",
     "eslint-plugin-jest": "^21.23.0",
     "express": "^4.16.3",
@@ -51,6 +53,7 @@
     "redux": "^4.0.0",
     "sequelize": "^4.39.0",
     "sql": "^0.78.0",
+    "style-loader": "^0.23.0",
     "webpack": "^4.20.2",
     "webpack-dev-server": "^3.1.9"
   },

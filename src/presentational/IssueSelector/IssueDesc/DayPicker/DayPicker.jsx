@@ -1,5 +1,5 @@
 import React from 'react';
-import DatePicker from 'react-date-picker';
+import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 
 class DayPicker extends React.Component {
   constructor() {
@@ -19,7 +19,7 @@ class DayPicker extends React.Component {
     const { date } = this.state;
     return (
       <div>
-        <DatePicker
+        <DateRangePicker
           onChange={this.onChange}
           value={date}
         />
