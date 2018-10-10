@@ -1,10 +1,11 @@
 import React from 'react';
 import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 
-const IssueDescView = ({ selectedIssue, hours, minutes, date, setMinutes, setHours, onDateChange, handleSubmit }) => { 
-  return (
+const IssueDescView = ({
+ selectedIssue, hours, minutes, date, setMinutes, setHours, onDateChange, handleSubmit 
+}) => (
     <div>
-      Repo: {selectedIssue.reponame}
+      Repo: {selectedIssue.username}
       <br />
       Issue Number: {selectedIssue.number}
       <br />
@@ -51,6 +52,5 @@ const IssueDescView = ({ selectedIssue, hours, minutes, date, setMinutes, setHou
       </form>
     </div>
   );
-};
 
 export default IssueDescView;

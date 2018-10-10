@@ -2,8 +2,8 @@ import React from 'react';
 import IssueListView from './IssueListView';
 
 class IssueList extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       issues: {
         repo: 'goonies',
@@ -17,8 +17,9 @@ class IssueList extends React.Component {
 
   render() {
     const { issues } = this.state;
+    const { plannedIssues } = this.props;
     return (
-      <IssueListView issues={issues} />
+      <IssueListView plannedIssues={plannedIssues} />
     );
   }
 }

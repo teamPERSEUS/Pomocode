@@ -9,9 +9,9 @@ class HomePage extends React.Component {
   }
 
   render() {
-    const { repos, issues } = this.props;
+    const { repos, issues, plannedIssues } = this.props;
     return (
-      <HomePageView repos={repos} issues={issues} />
+      <HomePageView repos={repos} issues={issues} plannedIssues={plannedIssues} />
     );
   }
 }
