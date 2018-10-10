@@ -23,6 +23,10 @@ module.exports = ({ mode } = { mode: 'production' }) => {
             },
           },
         },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
       ],
     },
     resolve: {
