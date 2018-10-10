@@ -1,14 +1,23 @@
 import React from 'react';
 
-const IssueView = () => { 
+const IssueView = ({ issues }) => { 
   return (
     <div className="issue-entry">
-      <h3>Issue</h3>
       <div>
-        {/* Issue data here */}
-        Rutrum vel est non, tempus accumsan
+        Repo:
+        {issues.repo}
         <br />
-        diam. In rutrum imperdiet ex, id iaculis
+        Issue Number:
+        {issues.number}
+        <br />
+        Issue Title:
+        {issues.title}
+        <br />
+        Date Range:
+        {issues.daterange}
+        <br />
+        Time Allotted:
+        {issues.time}
       </div>
     </div>
   );

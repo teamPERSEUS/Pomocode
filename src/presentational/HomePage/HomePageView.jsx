@@ -5,16 +5,14 @@ import IssueSelector from '../IssueSelector/IssueSelector';
 import IssueProgress from '../IssueProgress/IssueProgress';
 import SubChart from '../SubChart/SubChart';
 
-const HomePageView = () => { 
-  return (
-    <div>
-      <IntervalUpdates />
-      <IssueSelector />
-      <IssueProgress />
-      <MainChart />
-      <SubChart />
-    </div>
-  );
-};
+const HomePageView = ({ repos, issues }) => (
+  <div>
+    <IntervalUpdates />
+    <IssueSelector repos={repos} issues={issues} />
+    <IssueProgress />
+    <MainChart />
+    <SubChart />
+  </div>
+);
 
 export default HomePageView;

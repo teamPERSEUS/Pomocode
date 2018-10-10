@@ -22,7 +22,6 @@ class App extends React.Component {
       issues: [],
       repos: [],
     };
-
     this.getIssues = this.getIssues.bind(this);
   }
 
@@ -59,6 +58,8 @@ class App extends React.Component {
   render() {
     // the 2 array map calls are just to test if the repos and issues are saved in state.
     const { repos, issues } = this.state;
+    console.log(repos);
+    console.log(issues);
     return (
       <div className="header">
         <Header />
@@ -69,12 +70,6 @@ class App extends React.Component {
         </nav>
         <Router>
           <HomePage path="/" repos={repos} issues={issues} />
-          <Header path="/header" />
-          <IntervalUpdates path="/intervalupdates" />
-          <IssueSelector path="/issueselector" />
-          <IssueProgress path="/issueprogress" />
-          <MainChart path="/mainchart" />
-          <SubChart path="/subchart" />
           <HistoricalTrends path="/historicaltrends" />
         </Router>
       </div>

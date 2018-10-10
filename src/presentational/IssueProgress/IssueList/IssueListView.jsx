@@ -1,9 +1,10 @@
 import React from 'react';
 import Issue from './Issue/Issue';
 
-const IssueListView = () => { 
+const IssueListView = ( {issues} ) => { 
   return (
     <div>
+      <h3>Issues in Progress</h3>
       {/* <div className="issue-list">
         {props.issues.map(issue =>
           <Issue
@@ -11,8 +12,7 @@ const IssueListView = () => {
             key={issue.id.issueId}
           )};
       </div> */}
-      <Issue />
-      <Issue />
+      <Issue issues={issues} />
     </div>
   );
 };
