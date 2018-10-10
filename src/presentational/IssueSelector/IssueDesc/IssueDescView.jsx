@@ -1,12 +1,16 @@
 import React from 'react';
 import DayPicker from './DayPicker/DayPicker';
 
-const IssueDescView = () => { 
+const IssueDescView = ({ selectedIssue }) => { 
   return (
     <div>
-      <strong>Issue Title</strong>
+      Repo: {selectedIssue.reponame}
       <br />
-      The body of the issue.
+      Issue Number: {selectedIssue.number}
+      <br />
+      <strong>{selectedIssue.title}</strong>
+      <br />
+      Description: {selectedIssue.body}
       <br />
       <br />
       <form>

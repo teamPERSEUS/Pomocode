@@ -5,11 +5,11 @@ class IssueSelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedRepo: '',
-      selectedIssue: '',
+      selectedIssue: {},
       filteredIssues: [],
     };
     this.issueFilter = this.issueFilter.bind(this);
+    this.displayIssue = this.displayIssue.bind(this);
   }
 
   issueFilter(event) {
@@ -23,12 +23,30 @@ class IssueSelector extends React.Component {
     });
   }
 
+  displayIssue(event) {
+    const git_id = event.target.value;
+    const issue = this.state.filteredIssues.reduce((acc, item) => {
+      if (item.git_id === git_id) {
+        acc = item;
+      }
+      return acc;
+    }, {});
+    this.setState({
+      selectedIssue: issue,
+    });
+  }
 
   render() {
     const { repos } = this.props;
-    const { filteredIssues } = this.state;
+    const { filteredIssues, selectedIssue } = this.state;
     return (
-      <IssueSelectorView repos={repos} issues={filteredIssues} issueFilter={this.issueFilter} />
+      <IssueSelectorView
+        repos={repos}
+        issues={filteredIssues}
+        selectedIssue={selectedIssue}
+        issueFilter={this.issueFilter}
+        displayIssue={this.displayIssue}
+      />
     );
   }
 }

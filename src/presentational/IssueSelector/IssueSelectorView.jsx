@@ -1,7 +1,7 @@
 import React from 'react';
 import IssueDesc from './IssueDesc/IssueDesc';
 
-const IssueSelectorView = ({repos, issues, issueFilter}) => { 
+const IssueSelectorView = ({repos, issues, issueFilter, displayIssue, selectedIssue}) => { 
   return (
     <div>
       <h2>IssueSelector</h2>
@@ -17,16 +17,16 @@ const IssueSelectorView = ({repos, issues, issueFilter}) => {
         <br />
         <span>Issues</span>
         {' '}
-        <select>
+        <select onChange={displayIssue}>
           <option>
             -----
           </option>
-          {issues.map(issue => <option key={issue.git_id}>{issue.title}</option>)}
+          {issues.map(issue => <option key={issue.git_id} value={issue.git_id}>{issue.title}</option>)}
         </select>
         <br />
         {'---------- ---------- ----------'}
       </div>
-      <IssueDesc />
+      <IssueDesc selectedIssue={selectedIssue} />
     </div>
   );
 };
