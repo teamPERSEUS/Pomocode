@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SubChartView = () => { 
+const SubChartView = () => {
   return (
-    <div>
-      <h2>SubChart</h2>
+    <div className="sub-chart">
+      <h3>Historical Trends</h3>
     </div>
   );
 };

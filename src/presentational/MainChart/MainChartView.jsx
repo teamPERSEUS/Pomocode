@@ -1,9 +1,9 @@
 import React from 'react';
 
-const MainChartView = () => { 
+const MainChartView = () => {
   return (
-    <div>
-      <h2>MainChart</h2>
+    <div className="main-chart">
+      <h3>Issue/Interval Analysis</h3>
     </div>
   );
 };

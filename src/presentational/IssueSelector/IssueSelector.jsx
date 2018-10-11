@@ -37,7 +37,7 @@ class IssueSelector extends React.Component {
   }
 
   render() {
-    const { repos } = this.props;
+    const { repos, getPlannedIssues } = this.props;
     const { filteredIssues, selectedIssue } = this.state;
     return (
       <IssueSelectorView
@@ -46,6 +46,7 @@ class IssueSelector extends React.Component {
         selectedIssue={selectedIssue}
         issueFilter={this.issueFilter}
         displayIssue={this.displayIssue}
+        getPlannedIssues={getPlannedIssues}
       />
     );
   }

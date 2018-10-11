@@ -1,9 +1,9 @@
 import React from 'react';
 import IntervalList from './IntervalList/IntervalList';
 
-const IntervalUpdatesView = () => { 
+const IntervalUpdatesView = () => {
   return (
-    <div>
+    <div className="interval-updates">
       <h2>IntervalUpdates</h2>
       <IntervalList />
     </div>

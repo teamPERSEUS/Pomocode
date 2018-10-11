@@ -1,7 +1,7 @@
 import React from 'react';
 import IssueDesc from './IssueDesc/IssueDesc';
 
-const IssueSelectorView = ({repos, issues, issueFilter, displayIssue, selectedIssue}) => { 
+const IssueSelectorView = ({repos, issues, issueFilter, displayIssue, selectedIssue, getPlannedIssues}) => { 
   return (
     <div>
       <h2>IssueSelector</h2>
@@ -26,7 +26,7 @@ const IssueSelectorView = ({repos, issues, issueFilter, displayIssue, selectedIs
         <br />
         {'---------- ---------- ----------'}
       </div>
-      <IssueDesc selectedIssue={selectedIssue} />
+      <IssueDesc selectedIssue={selectedIssue} getPlannedIssues={getPlannedIssues} />
     </div>
   );
 };
