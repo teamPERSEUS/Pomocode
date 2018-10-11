@@ -2,13 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Link } from '@reach/router';
 import axios from 'axios';
+import Login from './presentational/Login/Login';
 import HomePage from './presentational/HomePage/HomePage';
 import Header from './presentational/Header/Header';
-import IntervalUpdates from './presentational/IntervalUpdates/IntervalUpdates';
-import IssueSelector from './presentational/IssueSelector/IssueSelector';
-import IssueProgress from './presentational/IssueProgress/IssueProgress';
-import MainChart from './presentational/MainChart/MainChart';
-import SubChart from './presentational/SubChart/SubChart';
 import HistoricalTrends from './presentational/HistoricalTrends/HistoricalTrends';
 
 const serverPort = process.env.NODE_ENV !== 'production' ? 'http://localhost:1337' : '';
@@ -17,6 +13,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      loading: true,
       user: '',
       token: '',
       issues: [],
@@ -38,6 +35,9 @@ class App extends React.Component {
           this.getPlannedIssues();
         });
       }
+      this.setState({
+        loading: false,
+      });
     });
   }
 
@@ -58,6 +58,7 @@ class App extends React.Component {
       });
   }
 
+  // get planned issues
   getPlannedIssues() {
     const { user } = this.state;
     axios
@@ -73,22 +74,41 @@ class App extends React.Component {
       });
   }
 
-  render() {
-    const { repos, issues, plannedIssues } = this.state;
+  renderHome() {
+    const {
+      user,
+      repos,
+      issues,
+      plannedIssues,
+    } = this.state;
+
+    if (user === '') {
+      return <Login loginURL={`${serverPort}/login`} />;
+    }
     return (
       <div className="header">
         <Header />
-        <a href={`${serverPort}/login`}> Login </a>
         <nav className="navBar">
           <Link to="/">Home</Link>
           <Link to="/historicaltrends">Historical Trends</Link>
         </nav>
         <Router>
-          <HomePage path="/" repos={repos} issues={issues} plannedIssues={plannedIssues} />
+          <HomePage
+            path="/"
+            repos={repos}
+            issues={issues}
+            plannedIssues={plannedIssues}
+            getPlannedIssues={this.getPlannedIssues}
+          />
           <HistoricalTrends path="/historicaltrends" />
         </Router>
       </div>
     );
+  }
+
+  render() {
+    const { loading } = this.state;
+    return loading ? null : this.renderHome();
   }
 }
 

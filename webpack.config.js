@@ -27,6 +27,13 @@ module.exports = ({ mode } = { mode: 'production' }) => {
           test: /\.css$/,
           use: ['style-loader', 'css-loader'],
         },
+        {
+          test: /\.(jpg|png|svg)$/,
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          },
+        },
       ],
     },
     resolve: {
