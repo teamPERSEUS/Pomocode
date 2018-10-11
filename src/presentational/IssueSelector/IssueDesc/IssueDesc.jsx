@@ -19,21 +19,19 @@ class IssueDesc extends React.Component {
   onDateChange(date) {
     this.setState({
       date,
-    }, () => { console.log(this.state.date); });
+    });
   }
 
   setMinutes(event) {
     this.setState({
       minutes: event.target.value,
     });
-    // console.log(minutes)
   }
 
   setHours(event) {
     this.setState({
       hours: event.target.value,
     });
-    // console.log(hours)
   }
 
   handleSubmit(event) {
@@ -46,10 +44,9 @@ class IssueDesc extends React.Component {
     planInfo.git_id = this.props.selectedIssue.git_id;
     planInfo.username = this.props.selectedIssue.username;
 
-    console.log(planInfo);
-
     axios.put('http://localhost:4000/addIssuePlan', planInfo)
       .then(() => {
+        this.props.getPlannedIssues();
         alert('Plan Uploaded!');
       });
   }
