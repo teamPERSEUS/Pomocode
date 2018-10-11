@@ -1,5 +1,5 @@
 import React from 'react';
-import c3 from 'c3';
+import { generate } from 'c3';
 
 class ChartView extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class ChartView extends React.Component {
   _updateChart() {
     const bind = `#${this.props.issue}`;
 
-    c3.generate({
+    generate({
       bindto: bind,
       data: {
         columns: [['Plan', 5], ['Actual', 6]],

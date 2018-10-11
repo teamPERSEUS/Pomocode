@@ -10,7 +10,7 @@ module.exports = ({ mode } = { mode: 'production' }) => {
       hotUpdateChunkFilename: 'hot/hot-update.js',
       hotUpdateMainFilename: 'hot/hot-update.json',
     },
-    plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()],
+    plugins: [new HtmlWebpackPlugin({ title: 'Pomocode', template: './src/index.html' }), new webpack.ProgressPlugin()],
     module: {
       rules: [
         {

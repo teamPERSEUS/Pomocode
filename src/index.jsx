@@ -14,6 +14,7 @@ const serverPort = process.env.NODE_ENV !== 'production' ? 'http://localhost:133
 class App extends React.Component {
   constructor() {
     super();
+    this._mounted = false;
     this.state = {
       loading: true,
       user: '',
@@ -27,20 +28,28 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    this._mounted = true;
+
     axios.get(`${serverPort}/session`, { withCredentials: true }).then(({ data }) => {
-      if (data.token !== null) {
+      if (this._mounted) {
+        if (data.token !== null) {
+          this.setState({
+            user: data.user,
+            token: data.token,
+          }, () => {
+            this.getIssues();
+            this.getPlannedIssues();
+          });
+        }
         this.setState({
-          user: data.user,
-          token: data.token,
-        }, () => {
-          this.getIssues();
-          this.getPlannedIssues();
+          loading: false,
         });
       }
-      this.setState({
-        loading: false,
-      });
     });
+  }
+
+  componentWillUnmount() {
+    this._mounted = false;
   }
 
   // retrieve issues and repos from service
@@ -118,4 +127,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.body);
+ReactDOM.render(<App />, document.getElementById('app'));
