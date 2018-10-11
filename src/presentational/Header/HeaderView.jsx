@@ -2,11 +2,10 @@ import React from 'react';
 import Login from './Login/Login';
 import Navbar from './Navbar/Navbar';
 
-const HeaderView = () => { 
+const HeaderView = () => {
   return (
-    <div>
-      <h1>PomoCode</h1>
-      <h2 className="description">A pomodoro timer that enhances productivity</h2>
+    <div className="header">
+      <h3>PomoCode</h3>
       <Login />
       <Navbar />
     </div>

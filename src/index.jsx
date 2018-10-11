@@ -7,6 +7,8 @@ import HomePage from './presentational/HomePage/HomePage';
 import Header from './presentational/Header/Header';
 import HistoricalTrends from './presentational/HistoricalTrends/HistoricalTrends';
 
+import './styles/main.css';
+
 const serverPort = process.env.NODE_ENV !== 'production' ? 'http://localhost:1337' : '';
 
 class App extends React.Component {
@@ -86,8 +88,7 @@ class App extends React.Component {
       return <Login loginURL={`${serverPort}/login`} />;
     }
     return (
-      <div className="header">
-        <Header />
+      <div>
         <nav className="navBar">
           <Link to="/">Home</Link>
           <Link to="/historicaltrends">Historical Trends</Link>
@@ -108,7 +109,12 @@ class App extends React.Component {
 
   render() {
     const { loading } = this.state;
-    return loading ? null : this.renderHome();
+    return (
+      <div>
+        <Header />
+        {loading ? null : this.renderHome()}
+      </div>
+    );
   }
 }
 

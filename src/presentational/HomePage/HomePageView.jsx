@@ -6,11 +6,11 @@ import IssueProgress from '../IssueProgress/IssueProgress';
 import SubChart from '../SubChart/SubChart';
 
 const HomePageView = ({ repos, issues, plannedIssues, getPlannedIssues }) => (
-  <div>
+  <div className="homepage">
     <IntervalUpdates />
+    <MainChart />
     <IssueSelector repos={repos} issues={issues} getPlannedIssues={getPlannedIssues} />
     <IssueProgress plannedIssues={plannedIssues} />
-    <MainChart />
     <SubChart />
   </div>
 );
