@@ -1,7 +1,7 @@
 import React from 'react';
-import ChartView from './ChartView';
+import IntervalChartView from './IntervalChartView';
 
-class IssueChart extends React.Component {
+class IntervalChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,11 +24,11 @@ class IssueChart extends React.Component {
     return (
       <div>
         <div>Interval# Issue Title Plan Date</div>
-        <ChartView issue={this.props.issue} column={this.state.columns} row={this.state.rows} />
+        <IntervalChartView interval={this.props.interval} column={this.state.columns} row={this.state.rows} />
         <div>You have spent 5/7 hours planned on issue title</div>
       </div>
     );
   }
 }
 
-export default IssueChart;
+export default IntervalChart;

@@ -5,7 +5,7 @@ import Navbar from './Navbar/Navbar';
 const HeaderView = () => {
   return (
     <div className="header">
-      <h3>PomoCode</h3>
+      <h3>Pomocode</h3>
       <Login />
       <Navbar />
     </div>

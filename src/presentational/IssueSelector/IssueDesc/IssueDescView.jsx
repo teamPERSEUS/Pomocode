@@ -2,49 +2,42 @@ import React from 'react';
 import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 
 const IssueDescView = ({
- selectedIssue, hours, minutes, date, setMinutes, setHours, onDateChange, handleSubmit 
+  selectedIssue, hours, minutes, date, setMinutes, setHours, onDateChange, handleSubmit
 }) => (
     <div>
-      Repo: {selectedIssue.username}
+      <strong>
+        {selectedIssue.git_id !== undefined ? `#${selectedIssue.number}: ${selectedIssue.title}` : null}
+      </strong>
       <br />
-      Issue Number: {selectedIssue.number}
       <br />
-      <strong>{selectedIssue.title}</strong>
-      <br />
-      Description: {selectedIssue.body}
+      {selectedIssue.body !== undefined ? `${selectedIssue.body}` : null}
       <br />
       <br />
       <form onSubmit={handleSubmit}>
-        <label>
-          <strong>Time Allotted to Issue:</strong>
-          <br />
-          <input
-            type="text"
-            id="hours"
-            value={hours}
-            onChange={setHours}
-            placeholder="add here..."
-          />
-          {' '}
-          hours
-          <br />
-          <br />
-          <input
-            type="text"
-            id="minutes"
-            value={minutes}
-            onChange={setMinutes}
-            placeholder="add here..."
-          />
-          {' '}
-          minutes
-          <br />
-          <strong>Date</strong>
-          <DateRangePicker
-            onChange={onDateChange}
-            value={date}
-          />
-        </label>
+        <strong>Time Allotment:</strong>
+        <br />
+        <input
+          type="text"
+          id="hours"
+          value={hours}
+          onChange={setHours}
+          placeholder="estimate hours..."
+        />
+        {' '}
+        <input
+          type="text"
+          id="minutes"
+          value={minutes}
+          onChange={setMinutes}
+          placeholder="estimate minutes..."
+        />
+        <br />
+        <br />
+        <strong>Date Range: </strong>
+        <DateRangePicker
+          onChange={onDateChange}
+          value={date}
+        />
         <br />
         <button type="submit" value="Submit">
           <strong>Submit Issue</strong>

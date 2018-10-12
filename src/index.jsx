@@ -119,7 +119,7 @@ class App extends React.Component {
   render() {
     const { loading } = this.state;
     return (
-      <div>
+      <div className="app-container">
         <Header />
         {loading ? null : this.renderHome()}
       </div>
