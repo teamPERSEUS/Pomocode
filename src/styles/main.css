@@ -1,16 +1,49 @@
-.homepage {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 0.5rem;
+h2, h3 {
+  margin-top: 0;
 }
 
-.interval-updates {
+select {
+  width: 265px;
+}
+
+.header {
+  border: 2px solid black;
+}
+
+.header > h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.homepage {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr 1fr 1fr;
+  grid-gap: 0.25rem;
+  border: 2px solid black;
+}
+
+.interval-updates-container {
   grid-column: 1 / span 2;
+  border: 2px solid black;
+}
+
+.interval {
+  border: 2px solid black;
+  margin-bottom: 0.25rem;
+}
+
+.issue-selector-container, .issue-progress-container {
+  border: 2px solid black;
+}
+
+.issue-in-progress-entry {
+  border: 2px solid black;
+  margin: 5px;
 }
 
 .main-chart, .sub-chart {
   grid-column: 3 / span 2;
+  border: 2px solid black;
 }
 
 .login {

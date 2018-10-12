@@ -14,6 +14,7 @@ const serverPort = process.env.NODE_ENV !== 'production' ? 'http://localhost:133
 class App extends React.Component {
   constructor() {
     super();
+    this._mounted = false;
     this.state = {
       loading: true,
       user: '',
@@ -27,20 +28,28 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    this._mounted = true;
+
     axios.get(`${serverPort}/session`, { withCredentials: true }).then(({ data }) => {
-      if (data.token !== null) {
+      if (this._mounted) {
+        if (data.token !== null) {
+          this.setState({
+            user: data.user,
+            token: data.token,
+          }, () => {
+            this.getIssues();
+            this.getPlannedIssues();
+          });
+        }
         this.setState({
-          user: data.user,
-          token: data.token,
-        }, () => {
-          this.getIssues();
-          this.getPlannedIssues();
+          loading: false,
         });
       }
-      this.setState({
-        loading: false,
-      });
     });
+  }
+
+  componentWillUnmount() {
+    this._mounted = false;
   }
 
   // retrieve issues and repos from service
@@ -64,7 +73,7 @@ class App extends React.Component {
   getPlannedIssues() {
     const { user } = this.state;
     axios
-      .get('http://localhost:4000/getPlannedIssues', { params: { user } })
+      .get('http://localhost:4000/api/plannedIssues', { params: { user } })
       .then(({ data }) => {
         this.setState({
           plannedIssues: data,
@@ -90,8 +99,6 @@ class App extends React.Component {
     return (
       <div>
         <nav className="navBar">
-          <Link to="/">Home</Link>
-          <Link to="/historicaltrends">Historical Trends</Link>
         </nav>
         <Router>
           <HomePage
@@ -110,7 +117,7 @@ class App extends React.Component {
   render() {
     const { loading } = this.state;
     return (
-      <div>
+      <div className="app-container">
         <Header />
         {loading ? null : this.renderHome()}
       </div>
@@ -118,4 +125,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.body);
+ReactDOM.render(<App />, document.getElementById('app'));

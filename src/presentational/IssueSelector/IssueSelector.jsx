@@ -13,13 +13,14 @@ class IssueSelector extends React.Component {
   }
 
   issueFilter(event) {
-    const repo = event.target.value;
+    const repoURL = event.target.value;
     const { issues } = this.props;
-    let repoIssues = issues.filter((issue) => {
-      return issue.reponame === repo;
+    const repoIssues = issues.filter((issue) => {
+      return issue.repo_url === repoURL;
     });
     this.setState({
       filteredIssues: repoIssues,
+      selectedIssue: {},
     });
   }
 

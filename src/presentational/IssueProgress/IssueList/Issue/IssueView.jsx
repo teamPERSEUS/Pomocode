@@ -1,15 +1,11 @@
 import React from 'react';
 
 const IssueView = ({ issue }) => (
-  <div className="issue-entry">
+  <div className="issue-in-progress-entry">
     <div>
-      Repo:
       {issue.reponame}
+      <strong>{` #${issue.number}:`}</strong>
       <br />
-      Issue Number:
-      {issue.number}
-      <br />
-      Issue Title:
       {issue.title}
       <br />
       Start Date:

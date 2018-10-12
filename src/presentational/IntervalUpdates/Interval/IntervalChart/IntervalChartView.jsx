@@ -1,7 +1,7 @@
 import React from 'react';
-import c3 from 'c3';
+import { generate } from 'c3';
 
-class ChartView extends React.Component {
+class IntervalChartView extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -11,9 +11,9 @@ class ChartView extends React.Component {
   }
 
   _updateChart() {
-    const bind = `#${this.props.issue}`;
+    const bind = `#${this.props.interval}`;
 
-    c3.generate({
+    generate({
       bindto: bind,
       data: {
         columns: [['Plan', 5], ['Actual', 6]],
@@ -32,15 +32,15 @@ class ChartView extends React.Component {
         rotated: true,
       },
       size: {
-        height: 20,
-        width: 400,
+        height: 45,
+        width: 600,
       },
     });
   }
 
   render() {
-    return <div id={this.props.issue.toString()}>{this.props.issue}</div>;
+    return <div id={this.props.interval.toString()}>{this.props.interval}</div>;
   }
 }
 
-export default ChartView;
+export default IntervalChartView;
