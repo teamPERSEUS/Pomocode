@@ -10,7 +10,7 @@ const IssueSelectorView = ({ repos, issues, issueFilter, displayIssue, selectedI
           ----- Select Repo -----
         </option>
         {repos.map(repo => (
-          <option key={repo.git_id} value={`${repo.owner}/${repo.name}`}>
+          <option key={repo.git_id} value={repo.url}>
             {`${repo.owner} / ${repo.name}`}
           </option>)
         )}

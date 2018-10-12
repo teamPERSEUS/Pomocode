@@ -32,7 +32,7 @@ class IntervalChartView extends React.Component {
         rotated: true,
       },
       size: {
-        height: 20,
+        height: 45,
         width: 600,
       },
     });

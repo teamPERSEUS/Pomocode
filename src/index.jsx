@@ -73,7 +73,7 @@ class App extends React.Component {
   getPlannedIssues() {
     const { user } = this.state;
     axios
-      .get('http://localhost:4000/getPlannedIssues', { params: { user } })
+      .get('http://localhost:4000/api/plannedIssues', { params: { user } })
       .then(({ data }) => {
         this.setState({
           plannedIssues: data,
@@ -99,8 +99,6 @@ class App extends React.Component {
     return (
       <div>
         <nav className="navBar">
-          <Link to="/">Home</Link>
-          <Link to="/historicaltrends">Historical Trends</Link>
         </nav>
         <Router>
           <HomePage

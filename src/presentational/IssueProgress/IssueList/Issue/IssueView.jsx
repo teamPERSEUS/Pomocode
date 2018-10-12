@@ -1,7 +1,7 @@
 import React from 'react';
 
 const IssueView = ({ issue }) => (
-  <div className="issue-entry">
+  <div className="issue-in-progress-entry">
     <div>
       {issue.reponame}
       <strong>{` #${issue.number}:`}</strong>

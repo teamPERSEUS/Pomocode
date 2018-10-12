@@ -36,15 +36,15 @@ class IssueDesc extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const planInfo = {};
-    planInfo.minutes = this.state.minutes;
-    planInfo.hours = this.state.hours;
-    planInfo.startdate = this.state.date[0];
-    planInfo.enddate = this.state.date[1];
-    planInfo.git_id = this.props.selectedIssue.git_id;
-    planInfo.username = this.props.selectedIssue.username;
+    const { hours, minutes, date } = this.state;
+    const { selectedIssue } = this.props;
 
-    axios.put('http://localhost:4000/addIssuePlan', planInfo)
+    selectedIssue.estimate_start_date = date[0];
+    selectedIssue.estimate_end_date = date[1];
+    selectedIssue.estimate_time = (hours * 60 * 60) + (minutes * 60);
+    selectedIssue.planned = true;
+
+    axios.put('http://localhost:4000/addIssuePlan', selectedIssue)
       .then(() => {
         this.props.getPlannedIssues();
         alert('Plan Uploaded!');

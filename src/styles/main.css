@@ -1,3 +1,7 @@
+h2, h3 {
+  margin-top: 0;
+}
+
 select {
   width: 265px;
 }
@@ -23,11 +27,16 @@ select {
   border: 2px solid black;
 }
 
+.interval {
+  border: 2px solid black;
+  margin-bottom: 0.25rem;
+}
+
 .issue-selector-container, .issue-progress-container {
   border: 2px solid black;
 }
 
-.issue-entry {
+.issue-in-progress-entry {
   border: 2px solid black;
   margin: 5px;
 }
