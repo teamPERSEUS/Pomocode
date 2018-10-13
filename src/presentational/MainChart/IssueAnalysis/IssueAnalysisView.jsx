@@ -3,11 +3,23 @@ import IssueInfoView from './IssueInfoView/IssueInfoView';
 import IssueFeedbackView from './IssueFeedbackView/IssueFeedbackView';
 import IssueChartView from './IssueChartView/IssueChartView';
 
-const IssueAnalysisView = () => (
+const IssueAnalysisView = ({ chardata, item, display }) => (
   <div>
-    <IssueChartView />
-    <IssueInfoView />
-    <IssueFeedbackView />
+    <IssueChartView
+      chardata={chardata}
+      item={item}
+      display={display}
+    />
+    <IssueInfoView
+      chardata={chardata}
+      item={item}
+      display={display}
+    />
+    <IssueFeedbackView
+      chardata={chardata}
+      item={item}
+      display={display}
+    />
   </div>
 );
 
