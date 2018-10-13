@@ -73,7 +73,7 @@ class App extends React.Component {
   getPlannedIssues() {
     const { user } = this.state;
     axios
-      .get('http://localhost:4000/api/plannedIssues', { params: { user } })
+      .post('http://localhost:4000/api/plannedIssues', { user })
       .then(({ data }) => {
         this.setState({
           plannedIssues: data,
