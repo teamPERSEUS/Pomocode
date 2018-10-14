@@ -1,11 +1,8 @@
 import React from 'react';
 
-const IssueFeedbackView = ({ chardata, item, display }) => (
+const IssueFeedbackView = ({ chartdata, item, display }) => (
   <div>
     <h3>Issue Feedback</h3>
-    { item }
-    { display }
-    { chardata }
   </div>
 );
 

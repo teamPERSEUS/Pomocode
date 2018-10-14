@@ -1,11 +1,8 @@
 import React from 'react';
 
-const IssueInfoView = ({ chardata, item, display }) => (
+const IssueInfoView = ({ chartdata, item, display }) => (
   <div>
     <h3>Issue Info</h3>
-    { item }
-    { display }
-    { chardata }
   </div>
 );
 

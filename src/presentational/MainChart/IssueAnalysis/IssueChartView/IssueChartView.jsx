@@ -1,12 +1,9 @@
 import React from 'react';
 
-const IssueChartView = ({ chardata, item, display }) => (
-  <div>
-    <h3>Issue Chart</h3>
-    { item }
-    { display }
-    { chardata }
-  </div>
-);
+const IssueChartView = ({ chartdata, item, display }) => {
+  if (item.git_id !== undefined) {
+    return <div id={item.git_id} />;
+  }
+};
 
 export default IssueChartView;

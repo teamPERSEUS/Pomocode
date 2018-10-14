@@ -3,20 +3,20 @@ import IssueInfoView from './IssueInfoView/IssueInfoView';
 import IssueFeedbackView from './IssueFeedbackView/IssueFeedbackView';
 import IssueChartView from './IssueChartView/IssueChartView';
 
-const IssueAnalysisView = ({ chardata, item, display }) => (
+const IssueAnalysisView = ({ chartdata, item, display }) => (
   <div>
     <IssueChartView
-      chardata={chardata}
+      chartdata={chartdata}
       item={item}
       display={display}
     />
     <IssueInfoView
-      chardata={chardata}
+      chartdata={chartdata}
       item={item}
       display={display}
     />
     <IssueFeedbackView
-      chardata={chardata}
+      chartdata={chartdata}
       item={item}
       display={display}
     />
