@@ -25,6 +25,7 @@ class App extends React.Component {
     };
     this.getIssues = this.getIssues.bind(this);
     this.getPlannedIssues = this.getPlannedIssues.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   componentDidMount() {
@@ -85,6 +86,21 @@ class App extends React.Component {
       });
   }
 
+  // logout out of Pomocode
+  logout() {
+    console.log('logging out...');
+    axios.get(`${serverPort}/logout`)
+      .then(() => {
+        this.setState({
+          user: '',
+          token: '',
+        });
+      })
+      .catch((err) => {
+        throw (err);
+      });
+  }
+
   renderHome() {
     const {
       user,
@@ -98,8 +114,7 @@ class App extends React.Component {
     }
     return (
       <div>
-        <nav className="navBar">
-        </nav>
+        <nav className="navBar" />
         <Router>
           <HomePage
             path="/"
@@ -118,7 +133,7 @@ class App extends React.Component {
     const { loading } = this.state;
     return (
       <div className="app-container">
-        <Header />
+        <Header logout={this.logout} />
         {loading ? null : this.renderHome()}
       </div>
     );

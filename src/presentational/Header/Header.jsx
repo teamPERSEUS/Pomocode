@@ -2,14 +2,15 @@ import React from 'react';
 import HeaderView from './HeaderView';
 
 class Header extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
   render() {
+    const { logout } = this.props;
     return (
-      <HeaderView />
+      <HeaderView logout={logout} />
     );
   }
 }
