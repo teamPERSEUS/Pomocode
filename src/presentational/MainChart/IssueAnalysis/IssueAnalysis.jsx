@@ -4,7 +4,7 @@ import '../../../../node_modules/c3/c3.css';
 import { array } from 'prop-types';
 import IssueAnalysisView from './IssueAnalysisView';
 
-const axios = require('axios');
+// const axios = require('axios');
 
 class IssueAnalysis extends React.Component {
   constructor(props) {
@@ -15,8 +15,15 @@ class IssueAnalysis extends React.Component {
         break: ['Break', 1, 2, 3, 4],
         wordcount: ['WordCount', 2, 1, 4, 3],
         git_id: 'Hi',
+        username: 'hellojohnny23',
+        reponame: 'Periodic Table',
+        number: 22,
+        title: 'on click table displays more info on element',
+        body: 'clicking an element in the periodic table will render a description of that element and how it interacts with other elements',
+        hoursWorked: '6hrs',
+        totalWordCount: '876',
       },
-      git_id: '',
+      // git_id: '',
     };
     this.updateChart = this.updateChart.bind(this);
   }
@@ -76,8 +83,8 @@ class IssueAnalysis extends React.Component {
   }
 
   render() {
-    const { chartdata, item, display } = this.state;
-    return <IssueAnalysisView chartdata={chartdata} item={item} display={display} />;
+    const { item } = this.state;
+    return <IssueAnalysisView item={item} />;
   }
 }
 export default IssueAnalysis;
