@@ -16,8 +16,9 @@ class IntervalChartView extends React.Component {
     generate({
       bindto: bind,
       data: {
-        columns: [['Plan', 5], ['Actual', 6]],
+        columns: [['Plan', 230], ['Time Already Spent', 130], ['Time Spent this Interval', 30]],
         type: 'bar',
+        groups: [['Time Already Spent', 'Time Spent this Interval']],
       },
       legend: {
         position: 'right',
