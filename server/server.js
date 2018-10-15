@@ -48,6 +48,12 @@ app.get('/session', (req, res) => {
   res.send({ token, user });
 });
 
+// logout out of Pomocode
+app.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.send();
+});
+
 // retrieve code from github
 app.get('/login', (req, res) => {
   res.redirect(gitCodeURL);
