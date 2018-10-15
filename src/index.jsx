@@ -88,8 +88,7 @@ class App extends React.Component {
 
   // logout out of Pomocode
   logout() {
-    console.log('logging out...');
-    axios.get(`${serverPort}/logout`)
+    axios.get(`${serverPort}/logout`, { withCredentials: true })
       .then(() => {
         this.setState({
           user: '',
