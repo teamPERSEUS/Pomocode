@@ -18,13 +18,17 @@ class IntervalChart extends React.Component {
     });
   }
 
-  // parseChartData() {}
+  // parseChartData()
 
   render() {
+    const { issue, getAnalysis } = this.props;
+    const { columns, rows } = this.state;
     return (
       <div>
-        <div>Interval# Issue Title Plan Date</div>
-        <IntervalChartView interval={this.props.interval} column={this.state.columns} row={this.state.rows} />
+        <span onClick={() => getAnalysis('Issue', issue.number)}>
+          {`Issue #${issue.number}: ${issue.title} (${issue.date})`}
+        </span>
+        <IntervalChartView issue={issue.title} column={columns} row={rows} />
         <div>You have spent 5/7 hours planned on issue title</div>
       </div>
     );

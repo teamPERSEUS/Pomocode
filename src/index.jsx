@@ -117,6 +117,7 @@ class App extends React.Component {
         <Router>
           <HomePage
             path="/"
+            user={user}
             repos={repos}
             issues={issues}
             plannedIssues={plannedIssues}

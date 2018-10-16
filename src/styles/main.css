@@ -19,17 +19,26 @@ select {
   display: grid;
   grid-template-columns: 1fr 1.25fr 1fr 1fr;
   grid-gap: 0.25rem;
-  border: 2px solid black;
 }
 
 .interval-updates-container {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.25rem;
+}
+
+.interval-list-container {
   border: 2px solid black;
 }
 
 .interval {
   border: 2px solid black;
   margin-bottom: 0.25rem;
+}
+
+.analysis-container {
+  border: 2px solid black;
 }
 
 .issue-selector-container, .issue-progress-container {
@@ -41,7 +50,7 @@ select {
   margin: 5px;
 }
 
-.main-chart, .sub-chart {
+.sub-chart {
   grid-column: 3 / span 2;
   border: 2px solid black;
 }

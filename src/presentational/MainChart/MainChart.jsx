@@ -2,14 +2,15 @@ import React from 'react';
 import MainChartView from './MainChartView';
 
 class MainChart extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
   render() {
+    const { user, analysisInfo } = this.props;
     return (
-      <MainChartView />
+      <MainChartView analysisInfo={analysisInfo} user={user} />
     );
   }
 }
