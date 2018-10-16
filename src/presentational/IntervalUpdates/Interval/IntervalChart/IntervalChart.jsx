@@ -25,7 +25,7 @@ class IntervalChart extends React.Component {
     const { columns, rows } = this.state;
     return (
       <div>
-        <span onClick={() => getAnalysis('Issue', issue.number)}>
+        <span onClick={() => getAnalysis('Issue', issue.number, issue.git_id)}>
           {`Issue #${issue.number}: ${issue.title} (${issue.date})`}
         </span>
         <IntervalChartView issue={issue.title} column={columns} row={rows} />

@@ -33,6 +33,7 @@ class IssueAnalysis extends React.Component {
     this.updateChart();
   }
 
+  // user this.props.user, this.props.analysisInfo.identifier (git_id), this.props.analysisInfo.number
   // getIssuesData() {
   //   axios.get(`http://localhost:4002/api/issueAnalysis?git_id=${this.state.git_id}`)
   //     .then(function (response) {

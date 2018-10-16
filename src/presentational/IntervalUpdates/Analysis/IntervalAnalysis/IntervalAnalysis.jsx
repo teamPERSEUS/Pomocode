@@ -26,7 +26,7 @@ class IntervalAnalysis extends React.Component {
     this.getIssuesData();
   }
 
-  // user this.props.user
+  // user this.props.user, this.props.analysisInfo.identifier (repoUrl), this.props.analysisInfo.number
   getIssuesData() {
     axios
       .get('http://localhost:4002/api/intervalDetails', {
