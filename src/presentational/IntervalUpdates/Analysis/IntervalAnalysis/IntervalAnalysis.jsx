@@ -1,6 +1,6 @@
 import React from 'react';
 import c3 from 'c3';
-import '../../../../node_modules/c3/c3.css';
+import '../../../../../node_modules/c3/c3.css';
 import axios from 'axios';
 import IntervalAnalysisView from './IntervalAnalysisView';
 

@@ -61,17 +61,19 @@ class IntervalUpdates extends React.Component {
         type: null,
         number: null,
         category: 'Files',
+        identifier: '',
       },
     };
 
     this.getAnalysis = this.getAnalysis.bind(this);
   }
 
-  getAnalysis(type, number) {
+  getAnalysis(type, number, identifier) {
     this.setState({
       analysisInfo: {
         type,
         number,
+        identifier,
       },
     });
   }
