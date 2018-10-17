@@ -1,5 +1,5 @@
 import React from 'react';
-import c3 from 'c3';
+import { generate } from 'c3';
 import '../../../../../node_modules/c3/c3.css';
 import axios from 'axios';
 import IntervalAnalysisView from './IntervalAnalysisView';
@@ -63,7 +63,7 @@ class IntervalAnalysis extends React.Component {
 
   updateChart() {
     const { item } = this.state;
-    c3.generate({
+    generate({
       bindto: '#chart',
       data: {
         x: 'fileName',

@@ -1,8 +1,7 @@
 import React from 'react';
-import c3 from 'c3';
+import { generate } from 'c3';
 import axios from 'axios';
 import '../../../../../node_modules/c3/c3.css';
-import { array } from 'prop-types';
 import IssueAnalysisView from './IssueAnalysisView';
 
 class IssueAnalysis extends React.Component {
@@ -64,7 +63,7 @@ class IssueAnalysis extends React.Component {
   updateChart() {
     const bind = '#chart';
     const { item } = this.state;
-    c3.generate({
+    generate({
       bindto: bind,
       data: {
         x: 'Interval',
