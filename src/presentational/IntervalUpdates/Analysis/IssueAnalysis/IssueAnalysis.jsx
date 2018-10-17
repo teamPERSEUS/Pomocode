@@ -1,6 +1,6 @@
 import React from 'react';
 import c3 from 'c3';
-import '../../../../node_modules/c3/c3.css';
+import '../../../../../node_modules/c3/c3.css';
 import { array } from 'prop-types';
 import IssueAnalysisView from './IssueAnalysisView';
 
@@ -33,6 +33,7 @@ class IssueAnalysis extends React.Component {
     this.updateChart();
   }
 
+  // user this.props.user, this.props.analysisInfo.identifier (git_id), this.props.analysisInfo.number
   // getIssuesData() {
   //   axios.get(`http://localhost:4002/api/issueAnalysis?git_id=${this.state.git_id}`)
   //     .then(function (response) {

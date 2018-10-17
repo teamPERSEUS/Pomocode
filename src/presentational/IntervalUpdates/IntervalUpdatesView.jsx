@@ -1,10 +1,8 @@
 import React from 'react';
 import IntervalIssueView from './Interval/IntervalIssueView';
-import MainChart from '../MainChart/MainChart';
+import Analysis from './Analysis/Analysis';
 
-const IntervalUpdatesView = ({
- user, intervals, analysisInfo, getAnalysis 
-}) => (
+const IntervalUpdatesView = ({ user, intervals, analysisInfo, getAnalysis }) => (
   <div className="interval-updates-container">
     <div className="interval-list-container">
       <h3>Interval Updates</h3>
@@ -13,12 +11,12 @@ const IntervalUpdatesView = ({
           const interval = Object.values(intervalObj);
           return (
             <div className="interval" key={interval[0].intervalNum}>
-              <span onClick={() => getAnalysis('Interval', interval[0].intervalNum)}>
+              <span onClick={() => getAnalysis('Interval', interval[0].intervalNum, interval[0].repo_url)}>
                 {`Interval #${interval[0].intervalNum}`}
               </span>
-              {interval[0].issues.map(issue => (
+              {interval.map(issue => (
                 <IntervalIssueView
-                  key={issue.title.toString()}
+                  key={`${issue.intervalNum}_${issue.number}`}
                   issue={issue}
                   getAnalysis={getAnalysis}
                 />
@@ -28,7 +26,7 @@ const IntervalUpdatesView = ({
       </div>
     </div>
     <div className="analysis-container">
-      <MainChart analysisInfo={analysisInfo} user={user} />
+      <Analysis analysisInfo={analysisInfo} user={user} />
     </div>
   </div>
 );

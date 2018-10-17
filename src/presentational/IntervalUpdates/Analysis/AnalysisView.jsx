@@ -1,10 +1,8 @@
 import React from 'react';
 import IssueAnalysis from './IssueAnalysis/IssueAnalysis';
 import IntervalAnalysis from './IntervalAnalysis/IntervalAnalysis';
-// import PieChart from '../../img/Pie.png';
 
-const MainChartView = ({ user, analysisInfo }) => {
-  console.log('User:', user);
+const AnalysisView = ({ user, analysisInfo }) => {
   if (analysisInfo.type === 'Issue') {
     return (
       <div className="main-chart">
@@ -24,4 +22,4 @@ const MainChartView = ({ user, analysisInfo }) => {
     </div>);
 };
 
-export default MainChartView;
+export default AnalysisView;

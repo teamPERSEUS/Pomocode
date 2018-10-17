@@ -7,53 +7,93 @@ class IntervalUpdates extends React.Component {
     this.state = {
       intervals: [
         {
-          Date1: {
-            intervalNum: 5,
-            issues: [
-              {
-                number: 1,
-                title: 'MockTest1',
-                date: '10/15',
-              },
-              {
-                number: 2,
-                title: 'MockTest2',
-                date: '10/15',
-              },
-              {
-                number: 3,
-                title: 'MockTest3',
-                date: '10/15',
-              }],
-          },
-        },
-        {
-          Date2: {
-            intervalNum: 4,
-            issues: [
-              {
-                number: 4,
-                title: 'MockTest4',
-                date: '10/15',
-              },
+          issue1: {
+            columns: [
+              ['Plan', 8.5],
+              ['Time', 4],
+              ['IntervalTime', 0.5],
             ],
-          },
-        },
-        {
-          date: {
+            groups: [['Time', 'IntervalTime']],
+            issueName: 'Issue No.1',
+            git_id: 'blah=',
+            repo_url: 'blah.com',
+            repoName: 'blah/blah',
             intervalNum: 3,
-            issues: [
-              {
-                number: 5,
-                title: 'MockTest5',
-                date: '10/15',
-              },
-              {
-                number: 6,
-                title: 'MockTest6',
-                date: '10/15',
-              },
+            number: 1,
+          },
+          issue2: {
+            columns: [
+              ['Plan', 6],
+              ['Time', 5],
+              ['IntervalTime', 0.5],
             ],
+            groups: [['Time', 'IntervalTime']],
+            issueName: 'Issue No.2',
+            git_id: 'blah2=',
+            repo_url: 'blah2.com',
+            repoName: 'blah2/blah2',
+            intervalNum: 3,
+            number: 2,
+          },
+        },
+        {
+          issue1: {
+            columns: [
+              ['Plan', 8.5],
+              ['Time', 3],
+              ['IntervalTime', 1],
+            ],
+            groups: [['Time', 'IntervalTime']],
+            issueName: 'Issue No.1',
+            git_id: 'blah=',
+            repo_url: 'blah.com',
+            repoName: 'blah/blah',
+            intervalNum: 2,
+            number: 1,
+          },
+        },
+        {
+          issue1: {
+            columns: [
+              ['Plan', 8.5],
+              ['Time', 1.5],
+              ['IntervalTime', 1.5],
+            ],
+            groups: [['Time', 'IntervalTime']],
+            issueName: 'Issue No.1',
+            git_id: 'blah=',
+            repo_url: 'blah.com',
+            repoName: 'blah/blah',
+            intervalNum: 1,
+            number: 1,
+          },
+          issue2: {
+            columns: [
+              ['Plan', 6],
+              ['Time', 3],
+              ['IntervalTime', 2],
+            ],
+            groups: [['Time', 'IntervalTime']],
+            issueName: 'Issue No.2',
+            git_id: 'blah2=',
+            repo_url: 'blah2.com',
+            repoName: 'blah2/blah2',
+            intervalNum: 1,
+            number: 2,
+          },
+          issue3: {
+            columns: [
+              ['Plan', 4],
+              ['Time', 0],
+              ['IntervalTime', 3],
+            ],
+            groups: [['Time', 'IntervalTime']],
+            issueName: 'Issue No.3',
+            git_id: 'blah3=',
+            repo_url: 'blah3.com',
+            repoName: 'blah3/blah3',
+            intervalNum: 1,
+            number: 3,
           },
         },
       ],
@@ -61,17 +101,19 @@ class IntervalUpdates extends React.Component {
         type: null,
         number: null,
         category: 'Files',
+        identifier: '',
       },
     };
 
     this.getAnalysis = this.getAnalysis.bind(this);
   }
 
-  getAnalysis(type, number) {
+  getAnalysis(type, number, identifier) {
     this.setState({
       analysisInfo: {
         type,
         number,
+        identifier,
       },
     });
   }

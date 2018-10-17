@@ -1,7 +1,7 @@
 import React from 'react';
-import MainChartView from './MainChartView';
+import AnalysisView from './AnalysisView';
 
-class MainChart extends React.Component {
+class Analysis extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -10,8 +10,8 @@ class MainChart extends React.Component {
   render() {
     const { user, analysisInfo } = this.props;
     return (
-      <MainChartView analysisInfo={analysisInfo} user={user} />
+      <AnalysisView analysisInfo={analysisInfo} user={user} />
     );
   }
 }
-export default MainChart;
+export default Analysis;
