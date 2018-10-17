@@ -6,13 +6,21 @@ select {
   width: 265px;
 }
 
+body {
+  background-color: rgb(245, 239, 233);
+}
+
 .header {
-  border-bottom: 2px solid black;
+  border: .35px solid rgb(66, 65, 65);
+  background: rgb(24, 134, 202);
+  border-radius: 8px;
 }
 
 .header > h3 {
   padding: 0;
   margin: 0;
+  margin-left: 15px;
+  vertical-align: top;
 }
 
 .homepage {
@@ -83,23 +91,34 @@ select {
 
 .logout-button {
   float: right;
-  background-color: #555555; /* Red */
+  background-color: rgb(245, 239, 233);
   border: none;
-  color: white;
-  padding: 20px 15px;
+  color: rgb(66, 65, 65);
+  padding: 10px 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
-  border-radius: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: .25px solid rgb(66, 65, 65);
+  display:inline-block;
+  margin-right: 15px;
+  margin-top: 12px;
 }
 
 .header-title {
-  text-align: center;
-  font-size: 40px;
-  color: #555555;
+  font-size: 50px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: rgb(245, 239, 233);
+  display:inline-block;
+  padding-top: 5px;
+  margin-left: 15px;
 }
 
 .logo {
-  border-radius: 12px;
+  border-radius: 8px;
+  border: .25px solid rgb(66, 65, 65);
+  display:inline-block;
+  margin-left: 15px;
+  margin-top: 6px;
 }
