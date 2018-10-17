@@ -65,7 +65,7 @@ select {
   margin: 5px;
 }
 
-.sub-chart {
+.historical-trends-container {
   grid-column: 3 / span 2;
 }
 
