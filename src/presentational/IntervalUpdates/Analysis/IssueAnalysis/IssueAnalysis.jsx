@@ -1,19 +1,21 @@
 import React from 'react';
 import c3 from 'c3';
+import axios from 'axios';
 import '../../../../../node_modules/c3/c3.css';
 import { array } from 'prop-types';
 import IssueAnalysisView from './IssueAnalysisView';
-
-// const axios = require('axios');
 
 class IssueAnalysis extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       item: {
-        running: ['Running', 3, 3, 4, 1],
-        break: ['Break', 1, 2, 3, 4],
-        wordcount: ['WordCount', 2, 1, 4, 3],
+        columns: [
+          ['Interval', 'No.1', 'No.2', 'No.3', 'No.4'],
+          ['Running', 3, 3, 4, 1],
+          ['Break', 1, 2, 3, 4],
+          ['WordCount', 2, 1, 4, 3],
+        ],
         git_id: 'Hi',
         username: 'hellojohnny23',
         reponame: 'Periodic Table',
@@ -34,28 +36,39 @@ class IssueAnalysis extends React.Component {
   }
 
   // user this.props.user, this.props.analysisInfo.identifier (git_id), this.props.analysisInfo.number
-  // getIssuesData() {
-  //   axios.get(`http://localhost:4002/api/issueAnalysis?git_id=${this.state.git_id}`)
-  //     .then(function (response) {
-  //       console.log(response)
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error)
-  //     })
-  // }
+  getIssuesData() {
+    const { user, analysisInfo } = this.props;
+    axios
+      .get('http://localhost:4002/api/issueAnalysis', {
+        params: {
+          git_id: analysisInfo.git_id,
+          user,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        this.setState(
+          {
+            item: response.data,
+          },
+          () => {
+            this.updateChart();
+          },
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   updateChart() {
-    const bind = `#chart`;
+    const bind = '#chart';
+    const { item } = this.state;
     c3.generate({
       bindto: bind,
       data: {
-        x: 'x',
-        columns: [
-          ['x', 'Interval1', 'Interval2', 'Interval3', 'Interval4'],
-          this.state.item.running,
-          this.state.item.break,
-          this.state.item.wordcount,
-        ],
+        x: 'Interval',
+        columns: item.columns,
         axes: {
           WordCount: 'y2',
         },
