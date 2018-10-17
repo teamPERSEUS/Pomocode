@@ -11,12 +11,12 @@ const IntervalUpdatesView = ({ user, intervals, analysisInfo, getAnalysis }) => 
           const interval = Object.values(intervalObj);
           return (
             <div className="interval" key={interval[0].intervalNum}>
-              <span onClick={() => getAnalysis('Interval', interval[0].intervalNum, interval[0].repoUrl)}>
+              <span onClick={() => getAnalysis('Interval', interval[0].intervalNum, interval[0].repo_url)}>
                 {`Interval #${interval[0].intervalNum}`}
               </span>
-              {interval[0].issues.map(issue => (
+              {interval.map(issue => (
                 <IntervalIssueView
-                  key={`${interval[0].intervalNum}_${issue.number}`}
+                  key={`${issue.intervalNum}_${issue.number}`}
                   issue={issue}
                   getAnalysis={getAnalysis}
                 />

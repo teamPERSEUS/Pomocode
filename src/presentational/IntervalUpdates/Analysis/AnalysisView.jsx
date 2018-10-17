@@ -3,7 +3,6 @@ import IssueAnalysis from './IssueAnalysis/IssueAnalysis';
 import IntervalAnalysis from './IntervalAnalysis/IntervalAnalysis';
 
 const AnalysisView = ({ user, analysisInfo }) => {
-  console.log('User:', user);
   if (analysisInfo.type === 'Issue') {
     return (
       <div className="main-chart">

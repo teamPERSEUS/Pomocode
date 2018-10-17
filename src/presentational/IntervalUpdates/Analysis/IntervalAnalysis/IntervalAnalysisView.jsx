@@ -1,19 +1,13 @@
 import React from 'react';
-import IntervalInfoView from './IntervalInfoView/IntervalInfoView';
-import IntervalFeedbackView from './IntervalFeedbackView/IntervalFeedbackView';
-import IntervalChartView from './IntervalChartView/IntervalChartView';
+import IntervalAnalysisInfoView from './IntervalAnalysisInfoView/IntervalAnalysisInfoView';
+import IntervalAnalysisFeedbackView from './IntervalAnalysisFeedbackView/IntervalAnalysisFeedbackView';
+import IntervalAnalysisChartView from './IntervalAnalysisChartView/IntervalAnalysisChartView';
 
 const IntervalAnalysisView = ({ item }) => (
   <div>
-    <IntervalChartView
-      item={item}
-    />
-    <IntervalInfoView
-      item={item}
-    />
-    <IntervalFeedbackView
-      item={item}
-    />
+    <IntervalAnalysisChartView />
+    <IntervalAnalysisInfoView item={item} />
+    <IntervalAnalysisFeedbackView item={item} />
   </div>
 );
 

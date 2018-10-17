@@ -10,11 +10,13 @@ class IntervalAnalysis extends React.Component {
     super(props);
     this.state = {
       item: {
-        xAxis: ['x', 'index.js', 'list.jsx', 'interval.jsx', 'main.css'],
-        runningActive: ['Running(Active)', 3, 3, 4, 1],
-        runningIdle: ['Running(Idle)', 3, 3, 4, 1],
-        breakActive: ['Break(Active)', 1, 2, 3, 4],
-        breakIdle: ['Break(Idle)', 2, 1, 4, 3],
+        columns: [
+          ['fileName', 'index.js', 'list.jsx', 'interval.jsx', 'main.css'],
+          ['Running(Active)', 3, 3, 4, 1],
+          ['Running(Idle)', 3, 3, 4, 1],
+          ['Break(Active)', 1, 2, 3, 4],
+          ['Break(Idle)', 2, 1, 4, 3],
+        ],
         groups: [['Running(Active)', 'Running(Idle)'], ['Break(Active)', 'Break(Idle)']],
         intervalNum: 'Hi',
       },
@@ -23,10 +25,11 @@ class IntervalAnalysis extends React.Component {
   }
 
   componentDidMount() {
-    this.getIssuesData();
+    // this.getIssuesData();
+    this.updateChart();
   }
 
-  // user this.props.user, this.props.analysisInfo.identifier (repoUrl), this.props.analysisInfo.number
+  // this.props.user, this.props.analysisInfo.identifier (repoUrl), this.props.analysisInfo.number
   getIssuesData() {
     axios
       .get('http://localhost:4002/api/intervalDetails', {

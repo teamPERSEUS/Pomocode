@@ -11,14 +11,16 @@ class IntervalChartView extends React.Component {
   }
 
   _updateChart() {
-    const bind = `#${this.props.issue}`;
+    const { issue } = this.props;
+    const bind = `#${`Issue${issue.intervalNum}-${issue.number}`}`;
 
     generate({
       bindto: bind,
       data: {
-        columns: [['Plan', 230], ['Time Already Spent', 130], ['Time Spent this Interval', 30]],
+        columns: issue.columns,
         type: 'bar',
-        groups: [['Time Already Spent', 'Time Spent this Interval']],
+        groups: issue.groups,
+        order: null,
       },
       legend: {
         position: 'right',
@@ -40,7 +42,8 @@ class IntervalChartView extends React.Component {
   }
 
   render() {
-    return <div id={this.props.issue.toString()}>{this.props.issue}</div>;
+    const { issue } = this.props;
+    return <div id={`Issue${issue.intervalNum}-${issue.number}`} />;
   }
 }
 

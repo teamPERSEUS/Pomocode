@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IntervalFeedbackView = ({ item }) => (
+const IntervalAnalysisFeedbackView = ({ item }) => (
   <div>
     <h3>Interval Feedback</h3>
     <p>
@@ -16,4 +16,4 @@ const IntervalFeedbackView = ({ item }) => (
   </div>
 );
 
-export default IntervalFeedbackView;
+export default IntervalAnalysisFeedbackView;
