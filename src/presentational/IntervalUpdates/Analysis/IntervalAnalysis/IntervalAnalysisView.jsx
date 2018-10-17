@@ -4,7 +4,7 @@ import IntervalAnalysisFeedbackView from './IntervalAnalysisFeedbackView/Interva
 import IntervalAnalysisChartView from './IntervalAnalysisChartView/IntervalAnalysisChartView';
 
 const IntervalAnalysisView = ({ item }) => (
-  <div>
+  <div className="analysis-view">
     <IntervalAnalysisChartView />
     <IntervalAnalysisInfoView item={item} />
     <IntervalAnalysisFeedbackView item={item} />

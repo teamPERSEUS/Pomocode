@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import { Provider } from 'react-redux';
+// import { createStore } from 'redux';
 import { Router, Link } from '@reach/router';
 import axios from 'axios';
+// import rootReducer from './reducers';
 import Login from './presentational/Login/Login';
 import HomePage from './presentational/HomePage/HomePage';
 import Header from './presentational/Header/Header';

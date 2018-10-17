@@ -3,20 +3,16 @@ import React from 'react';
 const IssueInfoView = ({ item }) => (
   <div>
     <h3>Issue Info</h3>
-    GitHub Name:
-    {item.username}
-    <br />
     Repo Name:
-    {item.reponame}
+    {` ${item.reponame}`}
     <br />
-    Issue Number:
-    {item.number}
     <br />
-    Issue Title:
-    {item.title}
+    {`#${item.number}:`}
+    {` ${item.title}`}
+    <br />
     <br />
     Description:
-    {item.body}
+    {` ${item.body.substring(0, 50)}...`}
   </div>
 );
 

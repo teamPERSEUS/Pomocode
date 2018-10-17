@@ -7,7 +7,7 @@ select {
 }
 
 .header {
-  border: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 .header > h3 {
@@ -17,7 +17,7 @@ select {
 
 .homepage {
   display: grid;
-  grid-template-columns: 1fr 1.25fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 0.25rem;
 }
 
@@ -29,7 +29,7 @@ select {
 }
 
 .interval-list-container {
-  border: 2px solid black;
+  
 }
 
 .interval {
@@ -38,11 +38,26 @@ select {
 }
 
 .analysis-container {
-  border: 2px solid black;
+  
+}
+
+.analysis-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0.25rem;
+}
+
+#chart {
+  height: 300px;
+  grid-column: 1 / span 3;
+}
+
+.feedback {
+  grid-column: 1 / span 4;
 }
 
 .issue-selector-container, .issue-progress-container {
-  border: 2px solid black;
+  
 }
 
 .issue-in-progress-entry {
@@ -52,7 +67,6 @@ select {
 
 .sub-chart {
   grid-column: 3 / span 2;
-  border: 2px solid black;
 }
 
 .login {

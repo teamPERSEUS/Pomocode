@@ -45,42 +45,40 @@ class IssueAnalysis extends React.Component {
   // }
 
   updateChart() {
-    if (this.state.item.git_id !== undefined) {
-      const bind = `#${this.state.item.git_id}`;
-      c3.generate({
-        bindto: bind,
-        data: {
-          x: 'x',
-          columns: [
-            ['x', 'Interval1', 'Interval2', 'Interval3', 'Interval4'],
-            this.state.item.running,
-            this.state.item.break,
-            this.state.item.wordcount,
-          ],
-          axes: {
-            WordCount: 'y2',
-          },
-          types: { Running: 'bar', Break: 'bar', WordCount: 'line' },
+    const bind = `#chart`;
+    c3.generate({
+      bindto: bind,
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'Interval1', 'Interval2', 'Interval3', 'Interval4'],
+          this.state.item.running,
+          this.state.item.break,
+          this.state.item.wordcount,
+        ],
+        axes: {
+          WordCount: 'y2',
         },
-        axis: {
-          x: {
-            type: 'category',
-          },
-          y: {
-            label: 'Time',
-          },
-          y2: {
-            show: true,
-            label: 'Word Count',
-          },
+        types: { Running: 'bar', Break: 'bar', WordCount: 'line' },
+      },
+      axis: {
+        x: {
+          type: 'category',
         },
-        bar: {
-          width: {
-            ratio: 0.5,
-          },
+        y: {
+          label: 'Time',
         },
-      });
-    }
+        y2: {
+          show: true,
+          label: 'Word Count',
+        },
+      },
+      bar: {
+        width: {
+          ratio: 0.5,
+        },
+      },
+    });
   }
 
   render() {

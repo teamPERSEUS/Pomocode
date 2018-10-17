@@ -19,6 +19,11 @@ class IntervalAnalysis extends React.Component {
         ],
         groups: [['Running(Active)', 'Running(Idle)'], ['Break(Active)', 'Break(Idle)']],
         intervalNum: 'Hi',
+        reponame: 'Pomocode',
+        wordCount: 425,
+        idleTime: 30,
+        mostActive: 'index.jsx',
+        feedback: 'Looks like you\'re spending your time wisely. Keep it up!',
       },
     };
     this.updateChart = this.updateChart.bind(this);
