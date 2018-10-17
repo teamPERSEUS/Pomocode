@@ -73,7 +73,7 @@ body {
   margin: 5px;
 }
 
-.historical-trends {
+.historical-trends-container {
   grid-column: 3 / span 2;
 }
 

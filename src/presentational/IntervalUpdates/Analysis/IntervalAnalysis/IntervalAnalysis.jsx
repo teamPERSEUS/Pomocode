@@ -1,5 +1,5 @@
 import React from 'react';
-import c3 from 'c3';
+import { generate } from 'c3';
 import '../../../../../node_modules/c3/c3.css';
 import axios from 'axios';
 import IntervalAnalysisView from './IntervalAnalysisView';
@@ -36,12 +36,13 @@ class IntervalAnalysis extends React.Component {
 
   // this.props.user, this.props.analysisInfo.identifier (repoUrl), this.props.analysisInfo.number
   getIssuesData() {
+    const { user, analysisInfo } = this.props;
     axios
       .get('http://localhost:4002/api/intervalDetails', {
         params: {
-          intervalNum: 1,
-          repoUrl: 'https://github.com/teamPERSEUS/Pomocode',
-          user: 'fredricklou523',
+          intervalNum: analysisInfo.number,
+          repoUrl: analysisInfo.identifier,
+          user,
         },
       })
       .then((response) => {
@@ -62,7 +63,7 @@ class IntervalAnalysis extends React.Component {
 
   updateChart() {
     const { item } = this.state;
-    c3.generate({
+    generate({
       bindto: '#chart',
       data: {
         x: 'fileName',
