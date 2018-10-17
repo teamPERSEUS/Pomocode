@@ -126,7 +126,6 @@ class App extends React.Component {
             plannedIssues={plannedIssues}
             getPlannedIssues={this.getPlannedIssues}
           />
-          <HistoricalTrends path="/historicaltrends" />
         </Router>
       </div>
     );

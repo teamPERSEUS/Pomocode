@@ -80,3 +80,26 @@ select {
   justify-content: space-between;
   align-items: center;
 }
+
+.logout-button {
+  float: right;
+  background-color: #555555; /* Red */
+  border: none;
+  color: white;
+  padding: 20px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 12px;
+}
+
+.header-title {
+  text-align: center;
+  font-size: 40px;
+  color: #555555;
+}
+
+.logo {
+  border-radius: 12px;
+}
