@@ -1,7 +1,7 @@
 import React from 'react';
 
 const IssueFeedbackView = ({ item }) => (
-  <div>
+  <div className="feedback">
     <h3>Issue Feedback</h3>
     <p>
       You have worked

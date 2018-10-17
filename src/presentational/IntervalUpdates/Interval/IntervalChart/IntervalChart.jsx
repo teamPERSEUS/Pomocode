@@ -27,9 +27,11 @@ class IntervalChart extends React.Component {
         <IntervalChartView issue={issue} />
         <div>
           You have spent
-          {` ${issue.columns[1][1] + issue.columns[2][1]}/${issue.columns[0][1]} `}
+          {` ${issue.columns[1][1] + issue.columns[2][1]} `}
+          out of
+          {` ${issue.columns[0][1]} `}
           hours planned on
-          {` ${issue.issueName}`}
+          {` Issue No.${issue.number}`}
         </div>
       </div>
     );

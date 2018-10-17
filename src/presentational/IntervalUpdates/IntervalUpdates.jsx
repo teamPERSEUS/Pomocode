@@ -105,7 +105,22 @@ class IntervalUpdates extends React.Component {
       },
     };
 
+    this.getIntervalUpdates = this.getIntervalUpdates.bind(this);
     this.getAnalysis = this.getAnalysis.bind(this);
+  }
+
+  componentDidMount() {
+    this.getIntervalUpdates();
+  }
+
+  getIntervalUpdates() {
+    this.setState({
+      analysisInfo: {
+        type: 'Interval',
+        number: 3,
+        identifier: 'blah/blah.com',
+      },
+    });
   }
 
   getAnalysis(type, number, identifier) {
