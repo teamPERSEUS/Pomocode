@@ -4,7 +4,7 @@ import axios from 'axios';
 import '../../../../../node_modules/c3/c3.css';
 import IssueAnalysisView from './IssueAnalysisView';
 
-const analyticsURL = (process.env.NODE_ENV !== 'production') ? 'http://localhost:4002' : process.env.ANALYTICS_SERVICE;
+const analyticsURL = (process.env.NODE_ENV !== 'production') ? 'http://localhost:4002' : 'https://pomocode-analytics.herokuapp.com';
 
 class IssueAnalysis extends React.Component {
   constructor(props) {

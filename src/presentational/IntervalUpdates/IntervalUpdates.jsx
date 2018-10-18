@@ -2,6 +2,8 @@ import React from 'react';
 import Axios from 'axios';
 import IntervalUpdatesView from './IntervalUpdatesView';
 
+const analyticsURL = process.env.NODE_ENV !== 'production' ? 'http://localhost:4002' : 'https://pomocode-analytics.herokuapp.com';
+
 class IntervalUpdates extends React.Component {
   constructor(props) {
     super(props);
@@ -93,7 +95,7 @@ class IntervalUpdates extends React.Component {
   getIntervalUpdates() {
     const { user } = this.props;
 
-    Axios.get('http://localhost:4002/api/intervalUpdates', {
+    Axios.get(`${analyticsURL}/api/intervalUpdates`, {
       params: {
         userName: user,
       },

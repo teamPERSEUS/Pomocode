@@ -4,7 +4,7 @@ import { generate } from 'c3';
 import '../../../node_modules/c3/c3.css';
 import HistoricalTrendsView from './HistoricalTrendsView';
 
-const analyticsURL = process.env.NODE_ENV !== 'production' ? 'http://localhost:4002' : process.env.ANALYTICS_SERVICE;
+const analyticsURL = process.env.NODE_ENV !== 'production' ? 'http://localhost:4002' : 'https://pomocode-analytics.herokuapp.com';
 
 class HistoricalTrends extends React.Component {
   constructor() {
