@@ -13,7 +13,7 @@ import Header from './presentational/Header/Header';
 import './styles/main.css';
 
 const serverPort = process.env.NODE_ENV !== 'production' ? 'http://localhost:1337' : '';
-const plannerURL = process.env.NODE_ENV !== 'production' ? 'http://localhost:4000' : process.env.PLANNER_SERVICE;
+const plannerURL = process.env.NODE_ENV !== 'production' ? 'http://localhost:4000' : 'https://pomocode-planner.herokuapp.com';
 
 class App extends React.Component {
   constructor() {
