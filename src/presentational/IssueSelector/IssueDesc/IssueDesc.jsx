@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import IssueDescView from './IssueDescView';
 
-const plannerURL = (process.env.NODE_ENV !== 'production') ? 'http://localhost:4000' : process.env.PLANNER_SERVICE;
+const plannerURL = process.env.NODE_ENV !== 'production' ? 'http://localhost:4000' : 'https://pomocode-planner.herokuapp.com';
 
 class IssueDesc extends React.Component {
   constructor(props) {
