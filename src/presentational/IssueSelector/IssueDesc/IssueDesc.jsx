@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import IssueDescView from './IssueDescView';
 
+const plannerURL = (process.env.NODE_ENV !== 'production') ? 'http://localhost:4000' : process.env.PLANNER_SERVICE;
+
 class IssueDesc extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +46,7 @@ class IssueDesc extends React.Component {
     selectedIssue.estimate_time = (hours * 60 * 60) + (minutes * 60);
     selectedIssue.planned = true;
 
-    axios.put('http://localhost:4000/addIssuePlan', selectedIssue)
+    axios.put(`${plannerURL}/addIssuePlan`, selectedIssue)
       .then(() => {
         this.props.getPlannedIssues();
         alert('Plan Uploaded!');

@@ -4,6 +4,7 @@ import '../../../../../node_modules/c3/c3.css';
 import axios from 'axios';
 import IntervalAnalysisView from './IntervalAnalysisView';
 
+const analyticsURL = (process.env.NODE_ENV !== 'production') ? 'http://localhost:4002' : process.env.ANALYTICS_SERVICE;
 
 class IntervalAnalysis extends React.Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class IntervalAnalysis extends React.Component {
   getIssuesData() {
     const { user, analysisInfo } = this.props;
     axios
-      .get('http://localhost:4002/api/intervalDetails', {
+      .get(`${analyticsURL}/api/intervalDetails`, {
         params: {
           intervalNum: analysisInfo.number,
           repoUrl: analysisInfo.identifier,

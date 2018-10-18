@@ -4,6 +4,8 @@ import axios from 'axios';
 import '../../../../../node_modules/c3/c3.css';
 import IssueAnalysisView from './IssueAnalysisView';
 
+const analyticsURL = (process.env.NODE_ENV !== 'production') ? 'http://localhost:4002' : process.env.ANALYTICS_SERVICE;
+
 class IssueAnalysis extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +40,7 @@ class IssueAnalysis extends React.Component {
   getIssuesData() {
     const { user, analysisInfo } = this.props;
     axios
-      .get('http://localhost:4002/api/issueAnalysis', {
+      .get(`${analyticsURL}/api/issueAnalysis`, {
         params: {
           git_id: analysisInfo.git_id,
           user,
