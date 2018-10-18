@@ -4,8 +4,11 @@ import '../../../../../node_modules/c3/c3.css';
 import axios from 'axios';
 import IntervalAnalysisView from './IntervalAnalysisView';
 
+<<<<<<< HEAD
 const analyticsURL = (process.env.NODE_ENV !== 'production') ? 'http://localhost:4002' : process.env.ANALYTICS_SERVICE;
 
+=======
+>>>>>>> Issue Analysis synced and displaying on FE
 class IntervalAnalysis extends React.Component {
   constructor(props) {
     super(props);
@@ -24,15 +27,15 @@ class IntervalAnalysis extends React.Component {
         wordCount: 425,
         idleTime: 30,
         mostActive: 'index.jsx',
-        feedback: 'Looks like you\'re spending your time wisely. Keep it up!',
+        feedback: "Looks like you're spending your time wisely. Keep it up!",
       },
     };
     this.updateChart = this.updateChart.bind(this);
   }
 
   componentDidMount() {
-    // this.getIssuesData();
-    this.updateChart();
+    this.getIssuesData();
+    // this.updateChart();
   }
 
   // this.props.user, this.props.analysisInfo.identifier (repoUrl), this.props.analysisInfo.number
@@ -47,7 +50,6 @@ class IntervalAnalysis extends React.Component {
         },
       })
       .then((response) => {
-        console.log(response.data);
         this.setState(
           {
             item: response.data,
@@ -77,7 +79,7 @@ class IntervalAnalysis extends React.Component {
           type: 'category',
         },
         y: {
-          label: 'Time(hrs)',
+          label: 'Time(minutes)',
         },
       },
       bar: {

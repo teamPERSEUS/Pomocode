@@ -102,12 +102,11 @@ class IntervalUpdates extends React.Component {
         this.setState({
           intervals: response.data,
         });
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-
+    // .then retreive info and set this state;
     this.setState({
       analysisInfo: {
         type: 'Interval',

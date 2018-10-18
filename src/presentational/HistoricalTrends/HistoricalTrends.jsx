@@ -4,7 +4,7 @@ import { generate } from 'c3';
 import '../../../node_modules/c3/c3.css';
 import HistoricalTrendsView from './HistoricalTrendsView';
 
-const analyticsURL = (process.env.NODE_ENV !== 'production') ? 'http://localhost:4002' : process.env.ANALYTICS_SERVICE;
+const analyticsURL = process.env.NODE_ENV !== 'production' ? 'http://localhost:4002' : process.env.ANALYTICS_SERVICE;
 
 class HistoricalTrends extends React.Component {
   constructor() {
@@ -60,16 +60,14 @@ class HistoricalTrends extends React.Component {
           type: 'category',
         },
         y: {
-          label: 'Time(hrs)',
+          label: 'Time(minutes)',
         },
       },
     });
   }
 
   render() {
-    return (
-      <HistoricalTrendsView />
-    );
+    return <HistoricalTrendsView />;
   }
 }
 export default HistoricalTrends;

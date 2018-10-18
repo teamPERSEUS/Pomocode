@@ -12,17 +12,25 @@ class IssueAnalysis extends React.Component {
     this.state = {
       item: {
         columns: [
-          ['Interval', 'No.1', 'No.2', 'No.3', 'No.4'],
-          ['Running', 3, 3, 4, 1],
-          ['Break', 1, 2, 3, 4],
+          [
+            'Date Interval',
+            '10/18 Interval 1',
+            '10/19 Interval 2',
+            '10/20 Interval 5',
+            '10/21 Interval 6',
+          ],
+          ['Active', 3, 8, 13, 25],
+          ['Idle', 1, 2, 3, 4],
           ['WordCount', 2, 1, 4, 3],
+          ['Plan', 20, 20, 20, 20],
         ],
         git_id: 'Hi',
         username: 'hellojohnny23',
         reponame: 'Periodic Table',
         number: 22,
         title: 'on click table displays more info on element',
-        body: 'clicking an element in the periodic table will render a description of that element and how it interacts with other elements',
+        body:
+          'clicking an element in the periodic table will render a description of that element and how it interacts with other elements',
         hoursWorked: '6hrs',
         totalWordCount: '876',
       },
@@ -32,8 +40,8 @@ class IssueAnalysis extends React.Component {
   }
 
   componentDidMount() {
-    // this.getIssuesData();
-    this.updateChart();
+    this.getIssuesData();
+    // this.updateChart();
   }
 
   // user this.props.user, this.props.analysisInfo.identifier (git_id), this.props.analysisInfo.number
@@ -68,30 +76,29 @@ class IssueAnalysis extends React.Component {
     generate({
       bindto: bind,
       data: {
-        x: 'Interval',
+        x: 'Date Interval',
         columns: item.columns,
+        groups: [['Idle', 'Active']],
         axes: {
           WordCount: 'y2',
         },
-        types: { Running: 'bar', Break: 'bar', WordCount: 'line' },
+        types: {
+          Active: 'bar',
+          Idle: 'bar',
+          WordCount: 'line',
+          Plan: 'line',
+        },
       },
       axis: {
         x: {
           type: 'category',
         },
-        y: {
-          label: 'Time',
-        },
         y2: {
+          padding: { top: 500 },
           show: true,
-          label: 'Word Count',
         },
       },
-      bar: {
-        width: {
-          ratio: 0.5,
-        },
-      },
+      size: {},
     });
   }
 
