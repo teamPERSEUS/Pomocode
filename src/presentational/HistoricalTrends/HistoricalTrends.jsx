@@ -4,6 +4,8 @@ import { generate } from 'c3';
 import '../../../node_modules/c3/c3.css';
 import HistoricalTrendsView from './HistoricalTrendsView';
 
+const analyticsURL = (process.env.NODE_ENV !== 'production') ? 'http://localhost:4002' : process.env.ANALYTICS_SERVICE;
+
 class HistoricalTrends extends React.Component {
   constructor() {
     super();
@@ -27,7 +29,7 @@ class HistoricalTrends extends React.Component {
   getData() {
     const { user } = this.props;
     axios
-      .get('http://localhost:4002/api/historicalTrends', { params: { user } })
+      .get(`${analyticsURL}/api/historicalTrends`, { params: { user } })
       .then((response) => {
         console.log(response.data);
         this.setState(
