@@ -47,6 +47,7 @@ class IntervalAnalysis extends React.Component {
         },
       })
       .then((response) => {
+        // console.log(response.data);
         this.setState(
           {
             item: response.data,
@@ -70,6 +71,7 @@ class IntervalAnalysis extends React.Component {
         columns: item.columns,
         type: 'bar',
         groups: item.groups,
+        order: 'asc',
       },
       axis: {
         x: {
