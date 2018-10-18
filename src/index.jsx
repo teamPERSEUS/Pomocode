@@ -8,11 +8,12 @@ import axios from 'axios';
 import Login from './presentational/Login/Login';
 import HomePage from './presentational/HomePage/HomePage';
 import Header from './presentational/Header/Header';
-import HistoricalTrends from './presentational/HistoricalTrends/HistoricalTrends';
+// import HistoricalTrends from './presentational/HistoricalTrends/HistoricalTrends';
 
 import './styles/main.css';
 
 const serverPort = process.env.NODE_ENV !== 'production' ? 'http://localhost:1337' : '';
+const plannerURL = process.env.NODE_ENV !== 'production' ? 'http://localhost:4000' : process.env.PLANNER_SERVICE;
 
 class App extends React.Component {
   constructor() {
@@ -60,7 +61,7 @@ class App extends React.Component {
   getIssues() {
     const { token, user } = this.state;
     axios
-      .post('http://localhost:4000/refreshGitData', { token, user })
+      .post(`${plannerURL}/refreshGitData`, { token, user })
       .then(({ data }) => {
         this.setState({
           issues: data.issues,
@@ -77,7 +78,7 @@ class App extends React.Component {
   getPlannedIssues() {
     const { user } = this.state;
     axios
-      .post('http://localhost:4000/api/plannedIssues', { user })
+      .post(`${plannerURL}/api/plannedIssues`, { user })
       .then(({ data }) => {
         this.setState({
           plannedIssues: data,
