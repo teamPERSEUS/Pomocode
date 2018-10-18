@@ -4,11 +4,8 @@ import '../../../../../node_modules/c3/c3.css';
 import axios from 'axios';
 import IntervalAnalysisView from './IntervalAnalysisView';
 
-<<<<<<< HEAD
-const analyticsURL = (process.env.NODE_ENV !== 'production') ? 'http://localhost:4002' : process.env.ANALYTICS_SERVICE;
+const analyticsURL = process.env.NODE_ENV !== 'production' ? 'http://localhost:4002' : process.env.ANALYTICS_SERVICE;
 
-=======
->>>>>>> Issue Analysis synced and displaying on FE
 class IntervalAnalysis extends React.Component {
   constructor(props) {
     super(props);
