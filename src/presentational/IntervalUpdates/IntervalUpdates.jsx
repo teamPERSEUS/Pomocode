@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 import IntervalUpdatesView from './IntervalUpdatesView';
 
 class IntervalUpdates extends React.Component {
@@ -8,11 +9,7 @@ class IntervalUpdates extends React.Component {
       intervals: [
         {
           issue1: {
-            columns: [
-              ['Plan', 8.5],
-              ['Time', 4],
-              ['IntervalTime', 0.5],
-            ],
+            columns: [['Plan', 8.5], ['Time', 4], ['IntervalTime', 0.5]],
             groups: [['Time', 'IntervalTime']],
             issueName: 'Issue No.1',
             git_id: 'blah=',
@@ -22,11 +19,7 @@ class IntervalUpdates extends React.Component {
             number: 1,
           },
           issue2: {
-            columns: [
-              ['Plan', 6],
-              ['Time', 5],
-              ['IntervalTime', 0.5],
-            ],
+            columns: [['Plan', 6], ['Time', 5], ['IntervalTime', 0.5]],
             groups: [['Time', 'IntervalTime']],
             issueName: 'Issue No.2',
             git_id: 'blah2=',
@@ -38,11 +31,7 @@ class IntervalUpdates extends React.Component {
         },
         {
           issue1: {
-            columns: [
-              ['Plan', 8.5],
-              ['Time', 3],
-              ['IntervalTime', 1],
-            ],
+            columns: [['Plan', 8.5], ['Time', 3], ['IntervalTime', 1]],
             groups: [['Time', 'IntervalTime']],
             issueName: 'Issue No.1',
             git_id: 'blah=',
@@ -54,11 +43,7 @@ class IntervalUpdates extends React.Component {
         },
         {
           issue1: {
-            columns: [
-              ['Plan', 8.5],
-              ['Time', 1.5],
-              ['IntervalTime', 1.5],
-            ],
+            columns: [['Plan', 8.5], ['Time', 1.5], ['IntervalTime', 1.5]],
             groups: [['Time', 'IntervalTime']],
             issueName: 'Issue No.1',
             git_id: 'blah=',
@@ -68,11 +53,7 @@ class IntervalUpdates extends React.Component {
             number: 1,
           },
           issue2: {
-            columns: [
-              ['Plan', 6],
-              ['Time', 3],
-              ['IntervalTime', 2],
-            ],
+            columns: [['Plan', 6], ['Time', 3], ['IntervalTime', 2]],
             groups: [['Time', 'IntervalTime']],
             issueName: 'Issue No.2',
             git_id: 'blah2=',
@@ -82,11 +63,7 @@ class IntervalUpdates extends React.Component {
             number: 2,
           },
           issue3: {
-            columns: [
-              ['Plan', 4],
-              ['Time', 0],
-              ['IntervalTime', 3],
-            ],
+            columns: [['Plan', 4], ['Time', 0], ['IntervalTime', 3]],
             groups: [['Time', 'IntervalTime']],
             issueName: 'Issue No.3',
             git_id: 'blah3=',
@@ -114,11 +91,28 @@ class IntervalUpdates extends React.Component {
   }
 
   getIntervalUpdates() {
+    const { user } = this.props;
+
+    Axios.get('http://localhost:4002/api/intervalUpdates', {
+      params: {
+        userName: user,
+      },
+    })
+      .then((response) => {
+        this.setState({
+          intervals: response.data,
+        });
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
     this.setState({
       analysisInfo: {
         type: 'Interval',
-        number: 3,
-        identifier: 'blah/blah.com',
+        number: 4,
+        identifier: 'blah/blah.cm',
       },
     });
   }
