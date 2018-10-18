@@ -27,7 +27,7 @@ class HistoricalTrends extends React.Component {
   }
 
   getData() {
-    const { user } = this.props;
+    // const { user } = this.props;
     axios
       .get(`${analyticsURL}/api/historicalTrends`, { params: { user } })
       .then((response) => {
