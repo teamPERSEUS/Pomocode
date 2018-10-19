@@ -5,13 +5,16 @@ const IssueDescView = ({
   selectedIssue, hours, minutes, date, setMinutes, setHours, onDateChange, handleSubmit
 }) => (
     <div>
-      <strong>
-        {selectedIssue.git_id !== undefined ? `#${selectedIssue.number}: ${selectedIssue.title}` : null}
-      </strong>
-      <br />
-      <br />
-      {selectedIssue.body !== undefined ? `${selectedIssue.body}` : null}
-      <br />
+      <strong>Issue description:</strong>
+      <div className="issue-desc-box">
+        <strong>
+          {selectedIssue.git_id !== undefined ? `#${selectedIssue.number}: ${selectedIssue.title}` : null}
+        </strong>
+        <br />
+        <br />
+        {selectedIssue.body !== undefined ? `${selectedIssue.body}` : null}
+        <br />
+      </div>
       <br />
       <form onSubmit={handleSubmit}>
         <strong>Time Allotment:</strong>
@@ -34,12 +37,14 @@ const IssueDescView = ({
         <br />
         <br />
         <strong>Date Range: </strong>
+        <br />
         <DateRangePicker
           onChange={onDateChange}
           value={date}
         />
         <br />
-        <button type="submit" value="Submit">
+        <br />
+        <button className="submit-button" type="submit" value="Submit">
           <strong>Submit Issue</strong>
         </button>
       </form>
