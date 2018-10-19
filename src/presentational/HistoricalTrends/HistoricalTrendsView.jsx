@@ -2,7 +2,7 @@ import React from 'react';
 
 const HistoricalTrendsView = () => (
   <div className="historical-trends-container">
-    <h3>Historical Trends</h3>
+    <h3 className="historical-trends-title">Historical Trends</h3>
     <div id="trends" />
   </div>
 );

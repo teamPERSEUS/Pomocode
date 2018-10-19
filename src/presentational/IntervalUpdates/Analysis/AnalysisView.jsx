@@ -6,13 +6,13 @@ const AnalysisView = ({ user, analysisInfo }) => {
   if (analysisInfo.type === 'Issue') {
     return (
       <div className="main-chart">
-        <h3>Issue Analysis</h3>
+        <h3 className="issue-analysis-title">Issue Analysis</h3>
         <IssueAnalysis user={user} analysisInfo={analysisInfo} />
       </div>);
   } if (analysisInfo.type === 'Interval') {
     return (
       <div className="main-chart">
-        <h3>Interval Analysis</h3>
+        <h3 className="interval-analysis-title">Interval Analysis</h3>
         <IntervalAnalysis user={user} analysisInfo={analysisInfo} />
       </div>);
   }

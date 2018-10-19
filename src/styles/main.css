@@ -43,22 +43,41 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.25rem;
   margin-top:10px;
+  /* background:rgb(237, 237, 238); */
+  border-radius: 8px;
+  margin-bottom: 10px;
+  /* border: 3px solid white; */
+}
+
+.interval-updates-title {
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .interval-list-container {
   font-family: 'Hind', sans-serif;
   margin-top: 0px;
+  background: rgb(237, 237, 238);
+  border-radius: 8px;
+  border: 3px solid white;
+}
+
+.interval-list {
+  /* border: 2px solid rgb(15, 200, 225); */
 }
 
 .interval {
-  border: 2px solid black;
-  margin-bottom: 0.25rem;
+  border: 2px solid rgb(24, 134, 202);
+  margin-bottom: .75rem;
+  margin-left: 5px;
+
 }
 
 .analysis-container {
   font-family: 'Hind', sans-serif;
   margin-top:3px;
-  margin-left:30px
+  margin-left:30px;
 }
 
 .analysis-view {
@@ -78,8 +97,9 @@ body {
 
 .issue-selector-container {
   font-family: 'Hind', sans-serif;
-  background:rgb(222, 222, 223);
+  background:rgb(237, 237, 238);
   border-radius: 8px;
+  border: 3px solid white;
 }
 
 .assigned-issues-container {
@@ -88,6 +108,7 @@ body {
 
 .assigned-issues-title {
   margin-left: 60px;
+  margin-top: 5px;
 }
 
 .issue-desc-box {
@@ -112,24 +133,53 @@ body {
   display: inline-block;
   font-size: 14px;
   border-radius: 8px;
+  margin-left: 50px;
+  margin-bottom: 20px;
 }
 
 .issue-progress-container {
   font-family: 'Hind', sans-serif;
   margin-left: 15px;
-  background:rgb(222, 222, 223);
+  background:rgb(237, 237, 238);
   border-radius: 8px;
+  border: 3px solid white;
 }
 
+.issues-progress-title {
+  margin-left: 60px;
+  margin-top: 5px;
+}
 .issue-in-progress-entry {
   border: 1px solid black;
   margin: 5px;
+}
+
+.feedback {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.main-chart {
+  background:rgb(237, 237, 238);
+  border-radius: 8px;
+  border: 3px solid white;
+  margin-top: 0px;
 }
 
 .historical-trends-container {
   font-family: 'Hind', sans-serif;
   grid-column: 3 / span 2;
   margin-left: 30px;
+  background: rgb(237, 237, 238);
+  border-radius: 8px;
+  border: 3px solid white;
+}
+
+.historical-trends-title,
+.interval-analysis-title,
+.issue-analysis-title {
+  margin-left: 10px;
+  margin-top: 3px;
 }
 
 .login {
@@ -146,9 +196,9 @@ body {
 
 .logout-button {
   float: right;
-  background-color: rgb(15, 200, 225);
+  background-color: rgb(238, 58, 41);
   border: none;
-  color: rgb(232, 234, 235);
+  color: white;
   padding: 10px 12px;
   text-align: center;
   text-decoration: none;
