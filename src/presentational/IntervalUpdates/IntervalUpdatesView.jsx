@@ -17,7 +17,7 @@ const IntervalUpdatesView = ({
         {intervals.map((intervalObj) => {
           const interval = Object.values(intervalObj);
           return (
-            <div className="interval" key={interval[0].intervalNum}>
+            <div className="interval" key={interval[0].bindTo}>
               <strong
                 onClick={() => getAnalysis('Interval', interval[0].intervalNum, interval[0].repo_url)
                 }

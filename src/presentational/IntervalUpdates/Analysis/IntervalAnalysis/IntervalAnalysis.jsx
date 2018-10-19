@@ -4,7 +4,9 @@ import '../../../../../node_modules/c3/c3.css';
 import axios from 'axios';
 import IntervalAnalysisView from './IntervalAnalysisView';
 
-const analyticsURL = process.env.NODE_ENV !== 'production' ? 'http://localhost:4002' : 'https://pomocode-analytics.herokuapp.com';
+const analyticsURL = process.env.NODE_ENV !== 'production'
+  ? 'http://localhost:4002'
+  : 'https://pomocode-analytics.herokuapp.com';
 
 class IntervalAnalysis extends React.Component {
   constructor(props) {
@@ -12,19 +14,19 @@ class IntervalAnalysis extends React.Component {
     this.state = {
       item: {
         columns: [
-          ['fileName', 'index.js', 'list.jsx', 'interval.jsx', 'main.css'],
-          ['Running(Active)', 3, 3, 4, 1],
-          ['Running(Idle)', 3, 3, 4, 1],
-          ['Break(Active)', 1, 2, 3, 4],
-          ['Break(Idle)', 2, 1, 4, 3],
+          ['fileName', 'HistoricalTrendsView.jsx', 'App.jsx.jsx', 'Charts.jsx'],
+          ['Running(Active)', 753, 1337, 2965],
+          ['Running(Idle)', 76, 288, 420],
+          ['Break(Active)', 265, 423, 601],
+          ['Break(Idle)', 197, 137, 185],
         ],
         groups: [['Running(Active)', 'Running(Idle)'], ['Break(Active)', 'Break(Idle)']],
-        intervalNum: 'Hi',
         reponame: 'Pomocode',
-        wordCount: 425,
-        idleTime: 30,
-        mostActive: 'index.jsx',
-        feedback: "Looks like you're spending your time wisely. Keep it up!",
+        wordCount: 1189,
+        idleTime: 1303,
+        mostActive: 'Charts.jsx',
+        feedback: "Looks like you've spent your interval wisely, yodaMan!",
+        intervalNum: '2',
       },
     };
     this.updateChart = this.updateChart.bind(this);
@@ -32,7 +34,7 @@ class IntervalAnalysis extends React.Component {
 
   componentDidMount() {
     this.getIssuesData();
-    // this.updateChart();
+    this.updateChart();
   }
 
   // this.props.user, this.props.analysisInfo.identifier (repoUrl), this.props.analysisInfo.number

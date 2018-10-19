@@ -1,7 +1,6 @@
 import React from 'react';
 import HomePageView from './HomePageView';
 
-
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -10,10 +9,16 @@ class HomePage extends React.Component {
 
   render() {
     const {
- user, repos, issues, plannedIssues, getPlannedIssues 
-} = this.props;
+      user, repos, issues, plannedIssues, getPlannedIssues,
+    } = this.props;
     return (
-      <HomePageView user={user} repos={repos} issues={issues} plannedIssues={plannedIssues} getPlannedIssues={getPlannedIssues} />
+      <HomePageView
+        user={user}
+        repos={repos}
+        issues={issues}
+        plannedIssues={plannedIssues}
+        getPlannedIssues={getPlannedIssues}
+      />
     );
   }
 }

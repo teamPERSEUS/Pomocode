@@ -8,6 +8,7 @@ const AnalysisView = ({ user, analysisInfo }) => {
       <div className="main-chart">
         <h3 className="issue-analysis-title">Issue Analysis</h3>
         <IssueAnalysis user={user} analysisInfo={analysisInfo} />
+<<<<<<< HEAD
       </div>);
   } if (analysisInfo.type === 'Interval') {
     return (
@@ -15,11 +16,17 @@ const AnalysisView = ({ user, analysisInfo }) => {
         <h3 className="interval-analysis-title">Interval Analysis</h3>
         <IntervalAnalysis user={user} analysisInfo={analysisInfo} />
       </div>);
+=======
+      </div>
+    );
+>>>>>>> Added mark as complete, fixed initial rendering
   }
   return (
-    <div>
-      <h3>Analysis</h3>
-    </div>);
+    <div className="main-chart">
+      <h3>Interval Analysis</h3>
+      <IntervalAnalysis user={user} analysisInfo={analysisInfo} />
+    </div>
+  );
 };
 
 export default AnalysisView;

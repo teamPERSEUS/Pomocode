@@ -10,7 +10,7 @@ const HomePageView = ({
   <div className="homepage">
     <IntervalUpdates user={user} />
     <IssueSelector repos={repos} issues={issues} getPlannedIssues={getPlannedIssues} />
-    <IssueProgress plannedIssues={plannedIssues} />
+    <IssueProgress plannedIssues={plannedIssues} getPlannedIssues={getPlannedIssues} />
     <HistoricalTrends />
   </div>
 );

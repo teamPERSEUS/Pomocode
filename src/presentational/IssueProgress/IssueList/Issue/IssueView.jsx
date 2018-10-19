@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IssueView = ({ issue }) => (
+const IssueView = ({ issue, completeItem }) => (
   <div className="issue-in-progress-entry">
     <div>
       {issue.reponame}
@@ -16,6 +16,7 @@ const IssueView = ({ issue }) => (
       Time Allotted:
       {issue.estimate_time}
     </div>
+    <button onClick={() => completeItem(issue.username, issue.git_id)} />
   </div>
 );
 

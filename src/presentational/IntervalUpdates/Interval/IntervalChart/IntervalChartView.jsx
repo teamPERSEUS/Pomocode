@@ -12,7 +12,7 @@ class IntervalChartView extends React.Component {
 
   _updateChart() {
     const { issue } = this.props;
-    const bind = `#${`Issue${issue.intervalNum}-${issue.number}`}`;
+    const bind = `#chart${issue.bindTo}`;
 
     generate({
       bindto: bind,
@@ -43,7 +43,7 @@ class IntervalChartView extends React.Component {
 
   render() {
     const { issue } = this.props;
-    return <div id={`Issue${issue.intervalNum}-${issue.number}`} />;
+    return <div id={`chart${issue.bindTo}`} />;
   }
 }
 

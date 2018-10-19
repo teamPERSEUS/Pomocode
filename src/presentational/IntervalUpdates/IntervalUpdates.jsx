@@ -2,7 +2,9 @@ import React from 'react';
 import Axios from 'axios';
 import IntervalUpdatesView from './IntervalUpdatesView';
 
-const analyticsURL = process.env.NODE_ENV !== 'production' ? 'http://localhost:4002' : 'https://pomocode-analytics.herokuapp.com';
+const analyticsURL = process.env.NODE_ENV !== 'production'
+  ? 'http://localhost:4002'
+  : 'https://pomocode-analytics.herokuapp.com';
 
 class IntervalUpdates extends React.Component {
   constructor(props) {
@@ -103,19 +105,21 @@ class IntervalUpdates extends React.Component {
       .then((response) => {
         this.setState({
           intervals: response.data,
+          // analysisInfo: {
+          //   type: 'Interval',
+          //   number: Object.values(response.data[0])[0].number,
+          //   identifier: Object.values(response.data[0])[0].repo_url,
+          // },
         });
+        this.getAnalysis(
+          'Interval',
+          Object.values(response.data[0])[0].intervalNum,
+          Object.values(response.data[0])[0].repo_url,
+        );
       })
       .catch((error) => {
         console.log(error);
       });
-    // .then retreive info and set this state;
-    this.setState({
-      analysisInfo: {
-        type: 'Interval',
-        number: 4,
-        identifier: 'blah/blah.cm',
-      },
-    });
   }
 
   getAnalysis(type, number, identifier) {

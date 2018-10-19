@@ -8,10 +8,8 @@ class IssueProgress extends React.Component {
   }
 
   render() {
-    const { plannedIssues } = this.props;
-    return (
-      <IssueProgressView plannedIssues={plannedIssues} />
-    );
+    const { plannedIssues, getPlannedIssues } = this.props;
+    return <IssueProgressView plannedIssues={plannedIssues} getPlannedIssues={getPlannedIssues} />;
   }
 }
 export default IssueProgress;

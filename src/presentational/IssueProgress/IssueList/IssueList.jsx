@@ -8,10 +8,8 @@ class IssueList extends React.Component {
   }
 
   render() {
-    const { plannedIssues } = this.props;
-    return (
-      <IssueListView plannedIssues={plannedIssues} />
-    );
+    const { plannedIssues, getPlannedIssues } = this.props;
+    return <IssueListView plannedIssues={plannedIssues} getPlannedIssues={getPlannedIssues} />;
   }
 }
 export default IssueList;
