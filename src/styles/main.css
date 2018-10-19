@@ -1,7 +1,12 @@
-h2,
+h2 {
+  font-family: 'Mukta', sans-serif;
+  margin-top: 0;
+}
+
 h3 {
   font-family: 'Mukta', sans-serif;
   margin-top: 0;
+  font-size: 30px;
 }
 
 select {
@@ -9,7 +14,7 @@ select {
 }
 
 body {
-  background-color: rgb(245, 239, 233);
+  background-color: rgb(250, 248, 245);
 }
 
 .header {
@@ -37,10 +42,12 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.25rem;
+  margin-top:10px;
 }
 
 .interval-list-container {
   font-family: 'Hind', sans-serif;
+  margin-top: 0px;
 }
 
 .interval {
@@ -50,6 +57,8 @@ body {
 
 .analysis-container {
   font-family: 'Hind', sans-serif;
+  margin-top:3px;
+  margin-left:30px
 }
 
 .analysis-view {
@@ -67,19 +76,60 @@ body {
   grid-column: 1 / span 4;
 }
 
-.issue-selector-container,
+.issue-selector-container {
+  font-family: 'Hind', sans-serif;
+  background:rgb(222, 222, 223);
+  border-radius: 8px;
+}
+
+.assigned-issues-container {
+  margin-left: 60px;
+}
+
+.assigned-issues-title {
+  margin-left: 60px;
+}
+
+.issue-desc-box {
+  border: 1px solid black;
+  border-style: dashed;
+  width: 250px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.react-date-picker__button__input__input {
+  min-width: calc(4px + 0.54em);
+}
+
+.submit-button {
+  background-color: rgb(15, 200, 225); /* Green */
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
 .issue-progress-container {
   font-family: 'Hind', sans-serif;
+  margin-left: 15px;
+  background:rgb(222, 222, 223);
+  border-radius: 8px;
 }
 
 .issue-in-progress-entry {
-  border: 2px solid black;
+  border: 1px solid black;
   margin: 5px;
 }
 
 .historical-trends-container {
   font-family: 'Hind', sans-serif;
   grid-column: 3 / span 2;
+  margin-left: 30px;
 }
 
 .login {
@@ -96,9 +146,9 @@ body {
 
 .logout-button {
   float: right;
-  background-color: rgb(245, 239, 233);
+  background-color: rgb(15, 200, 225);
   border: none;
-  color: rgb(66, 65, 65);
+  color: rgb(232, 234, 235);
   padding: 10px 12px;
   text-align: center;
   text-decoration: none;
@@ -114,7 +164,7 @@ body {
 .header-title {
   font-size: 50px;
   font-family: 'Source Sans Pro', sans-serif;
-  color: rgb(245, 239, 233);
+  color: rgb(242, 243, 246);
   display: inline-block;
   padding-top: 5px;
   margin-left: 15px;
