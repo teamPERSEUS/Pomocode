@@ -72,7 +72,9 @@ body {
   margin-bottom: .75rem;
   margin-left: 5px;
   background: white;
-
+  border-radius: 8px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .analysis-container {

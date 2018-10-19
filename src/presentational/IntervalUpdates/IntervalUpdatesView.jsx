@@ -6,7 +6,7 @@ const IntervalUpdatesView = ({ user, intervals, analysisInfo, getAnalysis }) => 
   <div className="interval-updates-container">
     <div className="interval-list-container">
       <h3 className="interval-updates-title">Interval Updates</h3>
-      <div className="interval-list" style={{ height: '380px', overflow: 'auto', overflowX: 'hidden' }}>
+      <div className="interval-list" style={{ height: '450px', overflow: 'auto', overflowX: 'hidden' }}>
         {intervals.map((intervalObj) => {
           const interval = Object.values(intervalObj);
           return (
