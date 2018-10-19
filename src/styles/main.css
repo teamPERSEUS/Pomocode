@@ -68,9 +68,10 @@ body {
 }
 
 .interval {
-  border: 2px solid rgb(24, 134, 202);
+  border: 1.5px solid rgb(24, 134, 202);
   margin-bottom: .75rem;
   margin-left: 5px;
+  background: white;
 
 }
 
