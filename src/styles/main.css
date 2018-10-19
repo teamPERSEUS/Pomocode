@@ -121,6 +121,9 @@ body {
   border-radius: 8px;
 }
 
+.issues-progress-title {
+  margin-left: 60px;
+}
 .issue-in-progress-entry {
   border: 1px solid black;
   margin: 5px;
