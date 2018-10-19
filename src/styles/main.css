@@ -42,7 +42,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.25rem;
-  margin-top:10px;
+  margin-top: 10px;
   /* background:rgb(237, 237, 238); */
   border-radius: 8px;
   margin-bottom: 10px;
@@ -69,7 +69,7 @@ body {
 
 .interval {
   border: 1.5px solid rgb(24, 134, 202);
-  margin-bottom: .75rem;
+  margin-bottom: 0.75rem;
   margin-left: 5px;
   background: white;
   border-radius: 8px;
@@ -79,8 +79,8 @@ body {
 
 .analysis-container {
   font-family: 'Hind', sans-serif;
-  margin-top:3px;
-  margin-left:30px;
+  margin-top: 3px;
+  margin-left: 30px;
 }
 
 .analysis-view {
@@ -88,19 +88,22 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 0.25rem;
 }
+.react-date-picker__button__input__input {
+  min-width: calc(4px + 0.54em);
+}
 
 #chart {
   height: 300px;
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 4;
 }
 
 .feedback {
-  grid-column: 1 / span 4;
+  grid-column: 1 / span 2;
 }
 
 .issue-selector-container {
   font-family: 'Hind', sans-serif;
-  background:rgb(237, 237, 238);
+  background: rgb(237, 237, 238);
   border-radius: 8px;
   border: 3px solid white;
 }
@@ -143,7 +146,7 @@ body {
 .issue-progress-container {
   font-family: 'Hind', sans-serif;
   margin-left: 15px;
-  background:rgb(237, 237, 238);
+  background: rgb(237, 237, 238);
   border-radius: 8px;
   border: 3px solid white;
 }
@@ -163,7 +166,7 @@ body {
 }
 
 .main-chart {
-  background:rgb(237, 237, 238);
+  background: rgb(237, 237, 238);
   border-radius: 8px;
   border: 3px solid white;
   margin-top: 0px;

@@ -4,7 +4,9 @@ import axios from 'axios';
 import '../../../../../node_modules/c3/c3.css';
 import IssueAnalysisView from './IssueAnalysisView';
 
-const analyticsURL = (process.env.NODE_ENV !== 'production') ? 'http://localhost:4002' : 'https://pomocode-analytics.herokuapp.com';
+const analyticsURL = process.env.NODE_ENV !== 'production'
+  ? 'http://localhost:4002'
+  : 'https://pomocode-analytics.herokuapp.com';
 
 class IssueAnalysis extends React.Component {
   constructor(props) {
@@ -23,6 +25,7 @@ class IssueAnalysis extends React.Component {
           ['Idle', 1, 2, 3, 4],
           ['WordCount', 2, 1, 4, 3],
           ['Plan', 20, 20, 20, 20],
+          ['totalActive', 20, 40, 70, 100],
         ],
         git_id: 'Hi',
         username: 'hellojohnny23',
@@ -87,6 +90,7 @@ class IssueAnalysis extends React.Component {
           Idle: 'bar',
           WordCount: 'line',
           Plan: 'line',
+          totalActive: 'area-spline',
         },
       },
       axis: {
@@ -94,7 +98,7 @@ class IssueAnalysis extends React.Component {
           type: 'category',
         },
         y2: {
-          padding: { top: 500 },
+          padding: { top: 500, bottom: 100 },
           show: true,
         },
       },
